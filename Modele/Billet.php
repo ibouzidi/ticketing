@@ -24,6 +24,13 @@ public function ajouterTicket($titre, $demande) {
 	$sql = 'INSERT INTO t_ticket(TIC_DATE, TIC_TITRE, TIC_CONTENU, TIC_ETAT) values(NOW(), ?, ?, 1)';
 	$sql = $this->executerRequete($sql, array($titre, $demande));
 }
+
+public function supprimerTicket($idBillet)
+{
+	$sql = 'DELETE FROM t_ticket WHERE TIC_ID = ?';
+	$sql = $this->executerRequete($sql, array($idBillet));
+}
+
 // Permet de modifier l'état d'un ticket
 public function ModifierEtat($etat, $idBillet){
 	$sql = 'UPDATE t_ticket SET TIC_ETAT = ? WHERE TIC_ID = ?';

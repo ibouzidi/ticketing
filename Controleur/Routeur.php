@@ -29,6 +29,10 @@ class Routeur {
                     $demande = $this->getParametre($_POST, 'demande');
                     $this->ctrlBillet->ajouterTicket($titre, $demande);
                 }
+                 else if ($_GET['action'] == 'supprimer'){
+                 $idBillet = intval($this->getParametre($_GET, 'id'));
+                 $this->ctrlBillet->supprimerTicket($idBillet);
+                 }
                 else if ($_GET['action'] == 'commenter') {
                     $auteur = $this->getParametre($_POST, 'auteur');
                     $contenu = $this->getParametre($_POST, 'contenu');

@@ -45,4 +45,11 @@ class ControleurBillet {
         die();
     }
 
+    public function supprimerTicket($idBillet)
+    {
+        $this->billet->supprimerTicket($idBillet);
+        header('Location: .');
+        die();
+    }
+
 }

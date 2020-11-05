@@ -29,6 +29,9 @@
                                     </a><time><?= strftime("%a %d %b  %Y %H:%M:%S", strtotime($billet['TIC_DATE'])); ?></time>
                                     <!-- <i class="fa fa-comments"></i><a href="#">2 commentaires</a> -->
                                 </p>
+                                <a style="color:red"
+                                    href="index.php?action=supprimer&id=<?= $billet['id_billet'] ?>">Supprimer un
+                                    billet</a>
                         </div>
                     </div>
                 </li>
