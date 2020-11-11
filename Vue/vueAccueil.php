@@ -4,6 +4,17 @@
     <div class="row">
         <!-- BEGIN TICKET CONTENT -->
         <div class="col-md-7">
+        <div class="btn-group">
+						<button type="button" class="btn btn-default active">15 Ouvert</button>
+						<button type="button" class="btn btn-default">3 Fermé</button>
+					</div>
+					 
+					 <div class="btn-group">
+						<button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown"> Langue <strong> :</strong> <span class="caret"></span></button>
+						<ul class="dropdown-menu fa-padding" role="menu">
+                            <li><a href="#"><i class="fa fa-check"></i> Ang</a></li>
+						</ul>
+					</div>
             <ul class="list-group fa-padding">
                 <?php foreach ($billets as $billet) : ?>
 
