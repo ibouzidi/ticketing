@@ -5,6 +5,9 @@
         <!-- BEGIN TICKET CONTENT -->
         <div class="col-md-7">
             <ul class="list-group fa-padding">
+                <a href="index.php?action=gestionsetat">Gestions des etats</a>
+                <a href="">En Francais</a>
+                <a href="">En Anglais</a>
                 <?php foreach ($billets as $billet) : ?>
 
                 <li class="list-group-item">
@@ -48,6 +51,13 @@
                     <input class="form-control" id="titre" name="titre" type="text" placeholder="L'objet de la demande"
                         required />
                 </div>
+               <!-- <div class="form-group">
+                    <label for="langue">Quel langue</label>
+                    <select multiple class="form-control" id="exampleFormControlSelect2">
+                        <option>Français</option>
+                        <option>Anglais</option>
+                    </select>
+                </div>-->
                 <div class="form-group">
                     <textarea id="txtCommentaire" rows="7" name="demande" class="form-control"
                         placeholder="Veillez mettre en claire le problème ou la question voulue" required></textarea>

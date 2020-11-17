@@ -23,12 +23,12 @@ class ControleurBillet {
         $vue->generer(array('billet' => $billet, 'etats' => $etats, 'commentaires' => $commentaires));
     }
 
-    public function modifieretat($etat, $idBillet) {
+/*    public function modifieretat($etat, $idBillet) {
         // Sauvegarde du commentaire
         $this->commentaire->ModifierEtat($etat, $idBillet);
         // Actualisation de l'affichage du billet
         $this->billet($idBillet);
-    }
+    }*/
 
     // Ajoute un commentaire à un billet
     public function commenter($auteur, $contenu, $idBillet) {
