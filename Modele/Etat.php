@@ -11,8 +11,16 @@ class Etat extends Modele
         $etats = $this->executerRequete($sql);
         return $etats;
     }
+
+    public function getEtat($idEtat)
+    {
+        $sql = "SELECT * FROM etats WHERE id = $idEtat";
+        $etat = $this->executerRequete($sql)->fetch();
+        return $etat;
+    }
     // Permet d'ajouter un nouveau etat
-    public function ajouterEtat($nom) {
+    public function ajouterEtat($nom)
+    {
         $sql = 'INSERT INTO etats(nom_etat) values(?)';
         $sql = $this->executerRequete($sql, array($nom));
     }
@@ -22,7 +30,8 @@ class Etat extends Modele
         $sql = $this->executerRequete($sql, array($idEtat));
     }
 
-    public function ModifierEtat($idEtat, $nomEtat){
+    public function ModifierEtat($idEtat, $nomEtat)
+    {
         $sql = 'UPDATE etats SET id = ?, nom_etat = ? WHERE id = ?, nom_etat = ?';
         $modifier = $this->executerRequete($sql, array($idEtat, $nomEtat));
     }

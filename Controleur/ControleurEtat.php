@@ -20,7 +20,8 @@ class ControleurEtat
         $vue = new Vue("Etat");
         $vue->generer(array('etats' => $etats));
     }
-    public function ajouterEtat($nom) {
+    public function ajouterEtat($nom)
+    {
         // Sauvegarde l'etat
         $this->etat->ajouterEtat($nom);
         header('Location: index.php?action=gestionsetat');
@@ -32,11 +33,20 @@ class ControleurEtat
         header('Location: index.php?action=gestionsetat');
         die();
     }
-    public function modifieretat($idEtat, $nomEtat) {
-        // Sauvegarde de l'etat
-        $this->etat->modifierEtat($idEtat, $nomEtat);
-        // Actualisation de l'affichage de l'etat
-        $this->etat($idEtat, $nomEtat);
+    public function editeretat($idEtat)
+    {
+        $etat = $this->etat->getEtat($idEtat);
+        $vue = new Vue("EditerEtat");
+        $vue->generer(array('etat' => $etat));
     }
 
+    public function modifieretat($idEtat, $nomEtat)
+    {
+        $etat = $this->etat->getEtat($idEtat);
+        $vue = new Vue("EditerEtat");
+        $vue->generer(array('etat' => $etat));
+        $this->etat->modifierEtat($idEtat, $nomEtat);
+        // Actualisation de l'affichage de l'etat
+
+    }
 }
