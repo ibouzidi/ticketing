@@ -1,6 +1,7 @@
 <?php
 
 require_once 'Modele/Etat.php';
+require_once 'Modele/Billet.php';
 require_once 'Vue/Vue.php';
 
 class ControleurEtat
@@ -29,9 +30,24 @@ class ControleurEtat
     }
     public function supprimerEtat($idEtat)
     {
-        $this->etat->supprimerEtat($idEtat);
-        header('Location: index.php?action=gestionsetat');
-        die();
+        try{
+            $this->etat->supprimerEtat($idEtat);
+            header('Location: index.php?action=gestionsetat');
+        } catch(Exception $e){
+            
+            $this->vuesupprimer();
+            die();
+        }
+        
+        
+        
+        
+    }
+    public function vuesupprimer()
+    {
+
+        $vue = new Vue("SuprimerErreur");
+        $vue->generer(array());
     }
     public function editeretat($idEtat)
     {

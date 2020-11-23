@@ -35,4 +35,6 @@ class Etat extends Modele
         $sql = 'UPDATE etats SET id = ?, nom_etat = ? WHERE id = ?, nom_etat = ?';
         $modifier = $this->executerRequete($sql, array($idEtat, $nomEtat));
     }
+
+
 }

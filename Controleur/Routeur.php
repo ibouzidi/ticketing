@@ -33,6 +33,9 @@ class Routeur
                     $titre = $this->getParametre($_POST, 'titre');
                     $demande = $this->getParametre($_POST, 'demande');
                     $this->ctrlBillet->ajouterTicket($titre, $demande);
+                } else if ($_GET['action'] == 'editerticket') {
+                    $idBillet = intval($this->getParametre($_GET, 'id'));
+                    $this->ctrlBillet->editerticket($idBillet);
                 } else if ($_GET['action'] == 'supprimer') {
                     $idBillet = intval($this->getParametre($_GET, 'id'));
                     $this->ctrlBillet->supprimerTicket($idBillet);
@@ -61,7 +64,7 @@ class Routeur
                     $idEtat = intval($this->getParametre($_POST, 'id'));
                     $nom = $this->getParametre($_POST, 'nom');
                     $this->ctrlEtat->modifieretat($idEtat, $nom);
-                } else
+                }else
                     throw new Exception("Action non valide");
             } else {  // aucune action définie : affichage de l'accueil
                 $this->ctrlAccueil->accueil();
