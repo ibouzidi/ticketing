@@ -64,7 +64,7 @@ class Routeur
                     $idEtat = intval($this->getParametre($_POST, 'id'));
                     $nom = $this->getParametre($_POST, 'nom');
                     $this->ctrlEtat->modifieretat($idEtat, $nom);
-                }else
+                } else
                     throw new Exception("Action non valide");
             } else {  // aucune action définie : affichage de l'accueil
                 $this->ctrlAccueil->accueil();

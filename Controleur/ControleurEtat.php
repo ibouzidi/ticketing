@@ -8,10 +8,12 @@ class ControleurEtat
 {
 
     private $etat;
+    private $billet;
 
     public function __construct()
     {
         $this->etat = new Etat();
+        $this->billet = new Billet();
     }
 
     // Affiche les détails sur un etat
@@ -42,6 +44,7 @@ class ControleurEtat
     public function vuesupprimer($idEtat)
     {
         $etat = $this->etat->getEtat($idEtat);
+
         $vue = new Vue("EditerEtat");
         $vue = new Vue("SuprimerErreur");
         $vue->generer(array('etat' => $etat));
