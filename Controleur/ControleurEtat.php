@@ -44,10 +44,10 @@ class ControleurEtat
     public function vuesupprimer($idEtat)
     {
         $etat = $this->etat->getEtat($idEtat);
-
+        $etatspp = $this->etat->getEtatSpp($idEtat);
         $vue = new Vue("EditerEtat");
         $vue = new Vue("SuprimerErreur");
-        $vue->generer(array('etat' => $etat));
+        $vue->generer(array('etat' => $etat, 'etatspp' => $etatspp));
     }
     public function editeretat($idEtat)
     {

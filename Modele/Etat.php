@@ -36,5 +36,15 @@ class Etat extends Modele
         $modifier = $this->executerRequete($sql, array($idEtat, $nomEtat));
     }
 
+    public function getEtatSpp($idEtat)
+    {
+        $sql = "SELECT e.id, e.nom_etat, t.TIC_ID,t.TIC_TITRE FROM etats e
+        JOIN t_ticket t ON e.id = t.TIC_ETAT
+        WHERE id = $idEtat
+        GROUP BY t.TIC_ID";
+        $etat = $this->executerRequete($sql);
+        return $etat;
+    }
+
 
 }
