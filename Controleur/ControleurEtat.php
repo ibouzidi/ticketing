@@ -30,24 +30,21 @@ class ControleurEtat
     }
     public function supprimerEtat($idEtat)
     {
-        try{
+        try {
             $this->etat->supprimerEtat($idEtat);
             header('Location: index.php?action=gestionsetat');
-        } catch(Exception $e){
-            
-            $this->vuesupprimer();
+        } catch (Exception $e) {
+
+            $this->vuesupprimer($idEtat);
             die();
         }
-        
-        
-        
-        
     }
-    public function vuesupprimer()
+    public function vuesupprimer($idEtat)
     {
-
+        $etat = $this->etat->getEtat($idEtat);
+        $vue = new Vue("EditerEtat");
         $vue = new Vue("SuprimerErreur");
-        $vue->generer(array());
+        $vue->generer(array('etat' => $etat));
     }
     public function editeretat($idEtat)
     {

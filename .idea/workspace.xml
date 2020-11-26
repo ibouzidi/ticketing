@@ -2,10 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="44464fe7-98e6-4c60-96a4-0811a17e759c" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/Controleur/ControleurBillet.php" beforeDir="false" afterPath="$PROJECT_DIR$/Controleur/ControleurBillet.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Controleur/Routeur.php" beforeDir="false" afterPath="$PROJECT_DIR$/Controleur/Routeur.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Modele/Modele.php" beforeDir="false" afterPath="$PROJECT_DIR$/Modele/Modele.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Vue/vueAccueil.php" beforeDir="false" afterPath="$PROJECT_DIR$/Vue/vueAccueil.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Vue/vueEditerticket.php" beforeDir="false" afterPath="$PROJECT_DIR$/Vue/vueEditerticket.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -66,6 +64,10 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="184" y="9" key="SettingsEditor/0.0.1366.728@0.0.1366.728" timestamp="1605256068387" />
+    <state x="263" y="19" key="com.intellij.database.dbimport.ImportDialog" timestamp="1606236929777">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="263" y="19" key="com.intellij.database.dbimport.ImportDialog/0.0.1366.728@0.0.1366.728" timestamp="1606236929777" />
     <state x="541" y="102" width="424" height="524" key="com.intellij.database.view.ui.AbstractDbRefactoringDialog" timestamp="1604655339771">
       <screen x="0" y="0" width="1366" height="728" />
     </state>

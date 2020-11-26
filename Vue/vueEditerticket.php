@@ -1,6 +1,3 @@
-
-
-
 <div class="container">
 <h2>Editer un ticket</h2>
             <form method="post" action="index.php?action=modifierticket">
