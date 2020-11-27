@@ -35,14 +35,99 @@
         </a>
         <hr>
     </header>
-    <div id="contenu">
-        <?= $contenu ?>
 
-    </div> <!-- #contenu -->
+    <div class="container">
+        <section class="content">
+            <div class="row">
+                <!-- BEGIN NAV TICKET -->
+                <div class="col-md-5">
+                    <div class="grid support">
+                        <div class="grid-body">
+                            <h2>Gestions</h2>
+
+                            <hr>
+
+                            <ul>
+                                <li class="active"><a href="index.php">Liste des tickets<span
+                                            class="pull-right">142</span></a></li>
+                                <li><a href="index.php?action=gestionsetat">Gestions des Etats<span
+                                            class="pull-right">52</span></a></li>
+                            </ul>
+                            <?php if(isset($_REQUEST['action']) == ''){?>
+
+                            <h2>Ajouter un nouveau ticket</h2>
+                            <form method="post" action="index.php?action=ajouter">
+                                <div class="form-group">
+                                    <input class="form-control" id="titre" name="titre" type="text"
+                                        placeholder="L'objet de la demande" required />
+                                </div>
+                                <div class="form-group">
+                                    <textarea id="txtCommentaire" rows="7" name="demande" class="form-control"
+                                        placeholder="Veillez mettre en claire le problème ou la question voulue"
+                                        required></textarea>
+                                </div>
+                                <input type="submit" value="Envoyer" name="valider_ticket" class="btn btn-primary" />
+                            </form>
+
+                            <?php }else{?>
+                            <h2>Ajouter un nouveau Etat</h2>
+                            <form method="post" action="index.php?action=ajouterEtat">
+                                <div class="form-group">
+                                    <input class="form-control" id="name" name="nom" type="text"
+                                        placeholder="Le nom de l'etat" required />
+                                </div>
+                                <input type="submit" value="Envoyer" name="submit" class="btn btn-primary" />
+                            </form>
+                            <?php }?>
+                        </div>
+                    </div>
+                </div>
+                <!-- END NAV TICKET -->
+                <!-- BEGIN TICKET -->
+
+                <div class="col-md-7">
+                    <div class="grid support-content">
+                        <div class="grid-body">
+                            <h2>Issues</h2>
+
+                            <hr>
+
+                            <div class="btn-group">
+                                <button type="button" class="btn btn-default active">162 Ouvert</button>
+                                <button type="button" class="btn btn-default">95,721 Fermé</button>
+                            </div>
+
+                            <div class="btn-group">
+                                <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+                                    Trier
+                                    par: <strong>Nouveaux</strong> <span class="caret"></span></button>
+                                <ul class="dropdown-menu fa-padding" role="menu">
+                                    <li><a href="#"><i class="fa fa-check"></i> Dernier</a></li>
+                                    <li><a href="#"><i class="fa"> </i> Autres</a></li>
+                                </ul>
+
+                            </div>
+                            <div class="padding"></div>
+
+                            <div class="row">
+                                <?= $contenu ?>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- END TICKET -->
+            </div>
+        </section>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.bundle.min.js"></script>
     <footer id="piedBlog">
         <center>
             Système ticketing POO
         </center>
+
     </footer>
 </body>
 

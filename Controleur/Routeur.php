@@ -57,13 +57,13 @@ class Routeur
                 } else if ($_GET['action'] == 'supprimerEtat') {
                     $idEtat = intval($this->getParametre($_GET, 'id'));
                     $this->ctrlEtat->supprimerEtat($idEtat);
-                } else if ($_GET['action'] == 'editeretat') {
+                } else if ($_GET['action'] == 'editetat') {
                     $idEtat = intval($this->getParametre($_GET, 'id'));
-                    $this->ctrlEtat->editeretat($idEtat);
+                    $this->ctrlEtat->editEtat($idEtat);
                 } else if ($_GET['action'] == 'modifieretat') {
                     $idEtat = intval($this->getParametre($_POST, 'id'));
                     $nom = $this->getParametre($_POST, 'nom');
-                    $this->ctrlEtat->modifieretat($idEtat, $nom);
+                    $this->ctrlEtat->modifierEtat($idEtat, $nom);
                 } else
                     throw new Exception("Action non valide");
             } else {  // aucune action définie : affichage de l'accueil

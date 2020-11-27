@@ -30,10 +30,10 @@ class Etat extends Modele
         $sql = $this->executerRequete($sql, array($idEtat));
     }
 
-    public function ModifierEtat($idEtat, $nomEtat)
+    public function modifierEtat($idEtat, $nom)
     {
-        $sql = 'UPDATE etats SET id = ?, nom_etat = ? WHERE id = ?, nom_etat = ?';
-        $modifier = $this->executerRequete($sql, array($idEtat, $nomEtat));
+        $sql = "UPDATE etats SET nom_etat = ? WHERE id = $idEtat";
+        $modifier = $this->executerRequete($sql, array($nom));
     }
 
     public function getEtatSpp($idEtat)
@@ -44,6 +44,8 @@ class Etat extends Modele
         GROUP BY t.TIC_ID";
         $etat = $this->executerRequete($sql);
         return $etat;
+
+       
     }
 
 

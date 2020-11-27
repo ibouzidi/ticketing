@@ -37,31 +37,30 @@ class ControleurEtat
             header('Location: index.php?action=gestionsetat');
         } catch (Exception $e) {
 
-            $this->vuesupprimer($idEtat);
-            die();
+            $etat = $this->etat->getEtat($idEtat);
+            $etatspp = $this->etat->getEtatSpp($idEtat);
+            $vue = new Vue("SuprimerErreur");
+            $vue->generer(array('etat' => $etat, 'etatspp' => $etatspp));
+
         }
     }
-    public function vuesupprimer($idEtat)
+    public function vuesupprimer($idEtat, $idBillet)
     {
-        $etat = $this->etat->getEtat($idEtat);
-        $etatspp = $this->etat->getEtatSpp($idEtat);
-        $vue = new Vue("EditerEtat");
-        $vue = new Vue("SuprimerErreur");
-        $vue->generer(array('etat' => $etat, 'etatspp' => $etatspp));
+        
     }
-    public function editeretat($idEtat)
+    public function editEtat($idEtat)
     {
         $etat = $this->etat->getEtat($idEtat);
-        $vue = new Vue("EditerEtat");
+        $vue = new Vue("editEtat");
         $vue->generer(array('etat' => $etat));
     }
 
     public function modifieretat($idEtat, $nomEtat)
     {
-        $etat = $this->etat->getEtat($idEtat);
-        $vue = new Vue("EditerEtat");
-        $vue->generer(array('etat' => $etat));
         $this->etat->modifierEtat($idEtat, $nomEtat);
+        header("location: index.php?action=gestionsetat");
+        die();
+        
         // Actualisation de l'affichage de l'etat
 
     }
