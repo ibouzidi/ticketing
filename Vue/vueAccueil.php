@@ -10,7 +10,7 @@
             <div class="media">
                 <i class="fa fa-tag pull-left"></i>
                 <div class="media-body">
-                    <?php if ($billet['TIC_ETAT'] == 1 || $billet['TIC_ETAT'] == 2) { ?>
+                    <?php if ($billet['TIC_ETAT'] == 1 || $billet['TIC_ETAT'] == 2 || $billet['TIC_ETAT'] == 3 || $billet['TIC_ETAT'] == 4) { ?>
                     <strong class="media-body-title">
                         <a href="index.php?action=billet&id=<?= $billet['id_billet'] ?>">
                             <?= $billet['TIC_TITRE'] ?></a>
@@ -21,11 +21,16 @@
 
                     <?php } elseif ($billet['TIC_ETAT'] == 2) { ?>
                     <span class="swd btn btn-danger"><?= $billet['nom_etat'] ?></span>
-                    <?php } ?>
-
-                    <?php } else { ?>
+                    <?php } elseif ($billet['TIC_ETAT'] == 3) { ?>
+                    <span class="swd btn btn-warning"><?= $billet['nom_etat'] ?></span>
+                    <?php 
+                    }elseif ($billet['TIC_ETAT'] == 4){ ?>
+                    <span class="swd btn btn-info"><?= $billet['nom_etat'] ?></span>
+                    <?php
+                    } 
+                    } else{ ?>
                     <a href="index.php?action=billet&id=<?= $billet['id_billet'] ?>"><?= $billet['TIC_TITRE'] ?>
-                    </a><span class="swd btn btn-warning"><?= $billet['nom_etat'] ?></span>
+                    </a><span class="swd btn btn-info"><?= $billet['nom_etat'] ?></span>
                     <?php } ?>
                     <p class="info">Ouvert par <a href="#">idris
                         </a><time><?= strftime('%a %d %b  %Y %H:%M:%S',strtotime($billet['TIC_DATE'])) ?></time>
