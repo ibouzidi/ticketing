@@ -53,32 +53,18 @@
                                 <li><a href="index.php?action=gestionsetat">Gestions des Etats<span
                                             class="pull-right">52</span></a></li>
                             </ul>
-                            <?php if(isset($_REQUEST['action']) == ''){?>
 
-                            <h2>Ajouter un nouveau ticket</h2>
-                            <form method="post" action="index.php?action=ajouter">
-                                <div class="form-group">
-                                    <input class="form-control" id="titre" name="titre" type="text"
-                                        placeholder="L'objet de la demande" required />
-                                </div>
-                                <div class="form-group">
-                                    <textarea id="txtCommentaire" rows="7" name="demande" class="form-control"
-                                        placeholder="Veillez mettre en claire le problème ou la question voulue"
-                                        required></textarea>
-                                </div>
-                                <input type="submit" value="Envoyer" name="valider_ticket" class="btn btn-primary" />
-                            </form>
-
-                            <?php }else{?>
-                            <h2>Ajouter un nouveau Etat</h2>
-                            <form method="post" action="index.php?action=ajouterEtat">
-                                <div class="form-group">
-                                    <input class="form-control" id="name" name="nom" type="text"
-                                        placeholder="Le nom de l'etat" required />
-                                </div>
-                                <input type="submit" value="Envoyer" name="submit" class="btn btn-primary" />
-                            </form>
-                            <?php }?>
+                            <?php 
+                            
+                            if(isset($_GET['action']) == 'gestionsetat' || isset($_GET['action']) == 'editetat')
+                            {
+                                include('vueAddEtat.php');
+                            }elseif(isset($_GET['action']) == '' || isset($_GET['action']) == 'editerticket'){
+                                include('vueAddTicket.php');
+                            }
+                            
+                        
+                            ?>
                         </div>
                     </div>
                 </div>
