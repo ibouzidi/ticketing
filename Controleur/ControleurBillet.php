@@ -4,18 +4,21 @@ require_once 'Modele/Billet.php';
 require_once 'Modele/Commentaire.php';
 require_once 'Vue/Vue.php';
 
-class ControleurBillet {
+class ControleurBillet
+{
 
     private $billet;
     private $commentaire;
 
-    public function __construct() {
+    public function __construct()
+    {
         $this->billet = new Billet();
         $this->commentaire = new Commentaire();
     }
 
     // Affiche les détails sur un billet
-    public function billet($idBillet) {
+    public function billet($idBillet)
+    {
         $billet = $this->billet->getBillet($idBillet);
         $etats = $this->billet->Etats($billet['nom_etat']);
         $commentaires = $this->commentaire->getCommentaires($idBillet);
@@ -23,7 +26,7 @@ class ControleurBillet {
         $vue->generer(array('billet' => $billet, 'etats' => $etats, 'commentaires' => $commentaires));
     }
 
-/*    public function modifieretat($etat, $idBillet) {
+    /*    public function modifieretat($etat, $idBillet) {
         // Sauvegarde du commentaire
         $this->commentaire->ModifierEtat($etat, $idBillet);
         // Actualisation de l'affichage du billet
@@ -31,14 +34,16 @@ class ControleurBillet {
     }*/
 
     // Ajoute un commentaire à un billet
-    public function commenter($auteur, $contenu, $idBillet) {
+    public function commenter($auteur, $contenu, $idBillet)
+    {
         // Sauvegarde du commentaire
         $this->commentaire->ajouterCommentaire($auteur, $contenu, $idBillet);
         // Actualisation de l'affichage du billet
         $this->billet($idBillet);
     }
 
-    public function ajouterTicket($titre, $demande) {
+    public function ajouterTicket($titre, $demande)
+    {
         // Sauvegarde du commentaire
         $this->billet->ajouterticket($titre, $demande);
         header('Location: .');
@@ -52,11 +57,17 @@ class ControleurBillet {
         $vue = new Vue("Editerticket");
         $vue->generer(array('billet' => $billet, 'etats' => $etats));
     }
+
+    public function modifierTicket($idBillet, $titre, $etats, $content)
+    {
+        $this->billet->modifierTicket($idBillet, $titre, $etats, $content);
+        header("location: index.php");
+        die();
+    }
     public function supprimerTicket($idBillet)
     {
         $this->billet->supprimerTicket($idBillet);
         header('Location: .');
         die();
     }
-
 }

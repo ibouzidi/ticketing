@@ -2,7 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="44464fe7-98e6-4c60-96a4-0811a17e759c" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Controleur/ControleurBillet.php" beforeDir="false" afterPath="$PROJECT_DIR$/Controleur/ControleurBillet.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Controleur/Routeur.php" beforeDir="false" afterPath="$PROJECT_DIR$/Controleur/Routeur.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Modele/Billet.php" beforeDir="false" afterPath="$PROJECT_DIR$/Modele/Billet.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Vue/gabarit.php" beforeDir="false" afterPath="$PROJECT_DIR$/Vue/gabarit.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Vue/vueAccueil.php" beforeDir="false" afterPath="$PROJECT_DIR$/Vue/vueAccueil.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Vue/vueBillet.php" beforeDir="false" afterPath="$PROJECT_DIR$/Vue/vueBillet.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Vue/vueEditerticket.php" beforeDir="false" afterPath="$PROJECT_DIR$/Vue/vueEditerticket.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -41,6 +46,7 @@
       <workItem from="1605017567707" duration="32000" />
       <workItem from="1605166802684" duration="239000" />
       <workItem from="1605255654490" duration="7874000" />
+      <workItem from="1608127218478" duration="12000" />
     </task>
     <servers />
   </component>

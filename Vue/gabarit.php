@@ -7,15 +7,12 @@
 
     <title></title>
     <meta content="Système de ticketing projet numéro 2 pour l'examin" name="descriptison">
-    <meta content="Systeme ticketing étudiants lycée Simone Weil Saint-Priest-en-Jarez application projet"
-        name="keywords">
+    <meta content="Systeme ticketing étudiants lycée Simone Weil Saint-Priest-en-Jarez application projet" name="keywords">
 
     <!-- Favicons -->
     <link href="" rel="icon">
     <!-- Google Fonts -->
-    <link
-        href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,700,700i|Raleway:300,400,500,700,800|Montserrat:300,400,700"
-        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,700,700i|Raleway:300,400,500,700,800|Montserrat:300,400,700" rel="stylesheet">
     <!-- Vendor CSS Files -->
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
@@ -48,22 +45,18 @@
                             <hr>
 
                             <ul>
-                                <li class="active"><a href="index.php">Liste des tickets<span
-                                            class="pull-right">142</span></a></li>
-                                <li><a href="index.php?action=gestionsetat">Gestions des Etats<span
-                                            class="pull-right">52</span></a></li>
+                                <li class="active"><a href="index.php">Liste des tickets<span class="pull-right">142</span></a></li>
+                                <li><a href="index.php?action=gestionsetat">Gestions des Etats<span class="pull-right">52</span></a></li>
                             </ul>
 
-                            <?php 
-                            
-                            if(isset($_GET['action']) == 'gestionsetat' || isset($_GET['action']) == 'editetat')
-                            {
-                                include('vueAddEtat.php');
-                            }elseif(isset($_GET['action']) == '' || isset($_GET['action']) == 'editerticket'){
+                            <?php
+
+                            if (isset($_GET['action']) == '' || $_GET['action'] == 'editerticket') {
                                 include('vueAddTicket.php');
+                            } elseif ($_GET['action'] == 'gestionsetat' || $_GET['action'] == 'editetat') {
+                                include('vueAddEtat.php');
                             }
-                            
-                        
+                            // echo $_GET['action'];
                             ?>
                         </div>
                     </div>
@@ -90,8 +83,8 @@
                                 <ul class="dropdown-menu fa-padding" role="menu">
                                     <li><a href="#"><i class="fa fa-check"></i> Dernier</a></li>
                                     <li><a href="#"><i class="fa"> </i> Autres</a></li>
-                                </ul>
 
+                                </ul>
                             </div>
                             <div class="padding"></div>
 
