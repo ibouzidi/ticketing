@@ -7,7 +7,7 @@ abstract class Modele
 
     protected function executerRequete($sql, $params = null)
     {
-        if ($params == null) {
+        if ($params ==   null) {
             $resultat = $this->getBdd()->query($sql); // exécution directe
         } else {
             $resultat = $this->getBdd()->prepare($sql);  // requête préparée
@@ -23,7 +23,7 @@ abstract class Modele
             $this->bdd = new PDO(
                 'mysql:host=localhost;dbname=ticketing;charset=utf8',
                 'root',
-                'toor',
+                '',
                 array(PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION)
             );
         }
