@@ -33,6 +33,15 @@ class Routeur
                     $titre = $this->getParametre($_POST, 'titre');
                     $demande = $this->getParametre($_POST, 'demande');
                     $this->ctrlBillet->ajouterTicket($titre, $demande);
+                } else if ($_GET['action'] == 'editerticket') {
+                    $idBillet = intval($this->getParametre($_GET, 'id'));
+                    $this->ctrlBillet->editerticket($idBillet);
+                } else if ($_GET['action'] == 'modifierticket') {
+                    $idBillet = intval($this->getParametre($_POST, 'id'));
+                    $titre = $this->getParametre($_POST, 'titre');
+                    $etats = $this->getParametre($_POST, 'etats');
+                    $content = $this->getParametre($_POST, 'content');
+                    $this->ctrlBillet->modifierTicket($idBillet, $titre, $etats, $content);
                 } else if ($_GET['action'] == 'supprimer') {
                     $idBillet = intval($this->getParametre($_GET, 'id'));
                     $this->ctrlBillet->supprimerTicket($idBillet);
