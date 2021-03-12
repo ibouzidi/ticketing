@@ -50,20 +50,6 @@ class ControleurBillet
         die();
     }
 
-    public function editerticket($idBillet)
-    {
-        $billet = $this->billet->getBillet($idBillet);
-        $etats = $this->billet->Etats($billet['nom_etat']);
-        $vue = new Vue("Editerticket");
-        $vue->generer(array('billet' => $billet, 'etats' => $etats));
-    }
-
-    public function modifierTicket($idBillet, $titre, $etats, $content)
-    {
-        $this->billet->modifierTicket($idBillet, $titre, $etats, $content);
-        header("location: index.php");
-        die();
-    }
     public function supprimerTicket($idBillet)
     {
         $this->billet->supprimerTicket($idBillet);
