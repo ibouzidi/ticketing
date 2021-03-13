@@ -42,14 +42,6 @@ class Billet extends Modele
 		$modifier = $this->executerRequete($sql, array($etat, $idBillet));
 	}
 
-	public function modifierTicket($idBillet, $titre, $content, $etats)
-	{
-		$sql = "UPDATE t_ticket SET TIC_DATE = NOW(), TIC_TITRE = ?, TIC_CONTENU = ?, TIC_ETAT = ?
-		WHERE TIC_ID = $idBillet";
-
-		$modifier = $this->executerRequete($sql, array($titre, $etats, $content));
-	}
-
 	// Permet de récupérer les états d'un ticket spécifique
 	public function Etats($etats)
 	{

@@ -37,8 +37,7 @@
                         </p>
                         <a onclick="return confirm('&Ecirc;tes-vous sûr de vouloir supprimer ce ticket ?')" href="index.php?action=supprimer&id=<?= $billet['id_billet'] ?>" class="btn btn-danger btn-sm pull-right"><i class="fa fa-trash fa-lg"></i></a>
 
-                        <a class="btn btn-warning btn-sm pull-right" href="index.php?action=editerticket&id=<?= $billet['id_billet'] ?>">
-                            <i class="fa fa-edit fa-lg"></i></a>
+
                     </div>
                 </div>
             </li>

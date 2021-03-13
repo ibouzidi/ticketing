@@ -45,8 +45,8 @@
                             <hr>
 
                             <ul>
-                                <li class="active"><a href="index.php">Liste des tickets<span class="pull-right">142</span></a></li>
-                                <li><a href="index.php?action=gestionsetat">Gestions des Etats<span class="pull-right">52</span></a></li>
+                                <li class="active"><a href="index.php">Liste des tickets<span class="pull-right"></span></a></li>
+                                <li><a href="index.php?action=gestionsetat">Gestions des Etats<span class="pull-right"></span></a></li>
                             </ul>
 
                             <?php
@@ -71,7 +71,7 @@
 
                             <hr>
 
-                            <div class="btn-group">
+                            <!-- <div class="btn-group">
                                 <button type="button" class="btn btn-default active">162 Ouvert</button>
                                 <button type="button" class="btn btn-default">95,721 Fermé</button>
                             </div>
@@ -85,7 +85,7 @@
                                     <li><a href="#"><i class="fa"> </i> Autres</a></li>
 
                                 </ul>
-                            </div>
+                            </div> -->
                             <div class="padding"></div>
 
                             <div class="row">

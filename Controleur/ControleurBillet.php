@@ -26,13 +26,6 @@ class ControleurBillet
         $vue->generer(array('billet' => $billet, 'etats' => $etats, 'commentaires' => $commentaires));
     }
 
-    /*    public function modifieretat($etat, $idBillet) {
-        // Sauvegarde du commentaire
-        $this->commentaire->ModifierEtat($etat, $idBillet);
-        // Actualisation de l'affichage du billet
-        $this->billet($idBillet);
-    }*/
-
     // Ajoute un commentaire à un billet
     public function commenter($auteur, $contenu, $idBillet)
     {
@@ -44,26 +37,12 @@ class ControleurBillet
 
     public function ajouterTicket($titre, $demande)
     {
-        // Sauvegarde du commentaire
+        // Sauvegarde du ticket
         $this->billet->ajouterticket($titre, $demande);
         header('Location: .');
         die();
     }
 
-    public function editerticket($idBillet)
-    {
-        $billet = $this->billet->getBillet($idBillet);
-        $etats = $this->billet->Etats($billet['nom_etat']);
-        $vue = new Vue("Editerticket");
-        $vue->generer(array('billet' => $billet, 'etats' => $etats));
-    }
-
-    public function modifierTicket($idBillet, $titre, $etats, $content)
-    {
-        $this->billet->modifierTicket($idBillet, $titre, $etats, $content);
-        header("location: index.php");
-        die();
-    }
     public function supprimerTicket($idBillet)
     {
         $this->billet->supprimerTicket($idBillet);
