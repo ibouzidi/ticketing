@@ -10,7 +10,7 @@ abstract class Modele
         if ($params == null) {
             $resultat = $this->getBdd()->query($sql); // exécution directe
         } else {
-            $resultat = $this->getBdd()->prepare($sql);  // requête préparée
+            $resultat = $this->getBdd()->prepare($sql); // requête préparée
             $resultat->execute($params);
         }
         return $resultat;

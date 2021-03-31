@@ -16,9 +16,8 @@ class ControleurBillet
         $this->commentaire = new Commentaire();
     }
 
-    // Affiche les détails sur un billet
-    public function billet($idBillet)
-    {
+    // Affiche un ticket en particulier
+    public function billet($idBillet){
         $billet = $this->billet->getBillet($idBillet);
         $etats = $this->billet->Etats($billet['nom_etat']);
         $commentaires = $this->commentaire->getCommentaires($idBillet);
@@ -26,53 +25,48 @@ class ControleurBillet
         $vue->generer(array('billet' => $billet, 'etats' => $etats, 'commentaires' => $commentaires));
     }
 
-    /*    public function modifieretat($etat, $idBillet) {
-        // Sauvegarde du commentaire
-        $this->commentaire->ModifierEtat($etat, $idBillet);
-        // Actualisation de l'affichage du billet
-        $this->billet($idBillet);
-    }*/
-
-    // Ajoute un commentaire à un billet
-    public function commenter($auteur, $contenu, $idBillet)
-    {
-        // Sauvegarde du commentaire
-        $this->commentaire->ajouterCommentaire($auteur, $contenu, $idBillet);
-        // Actualisation de l'affichage du billet
-        $this->billet($idBillet);
+    // vue form ajout ticket
+    public function formajoutticket(){
+        $vue = new Vue("AddTicket");
+        $vue->generer(array());
     }
 
-    public function ajouterTicket($titre, $demande)
-    {
-        // Sauvegarde du commentaire
-        $this->billet->ajouterticket($titre, $demande);
-        header('Location: .');
-        die();
+    // Sauvegarde un ticket
+    public function ajouterTicket($titre, $description){
+        $this->billet->ajouterticket($titre, $description);
+        header('Location: index.php?action=gestiontickets');
     }
-
-    public function editerticket($idBillet)
-    {
+    // vue edit ticket
+    public function editerticket($idBillet){
         $billet = $this->billet->getBillet($idBillet);
         $etats = $this->billet->Etats($billet['nom_etat']);
         $vue = new Vue("Editerticket");
         $vue->generer(array('billet' => $billet, 'etats' => $etats));
     }
-
-    public function modifierTicket($idBillet, $titre, $etats, $content)
-    {
+    // update ticket
+    public function modifierTicket($idBillet, $titre, $etats, $content){
         $this->billet->modifierTicket($idBillet, $titre, $etats, $content);
-        header("location: index.php");
-        die();
+        header("location: index.php?action=gestiontickets");
     }
-    public function supprimerTicket($idBillet)
-    {
+    // suppression d'un ticket
+    public function supprimerTicket($idBillet){
         $this->billet->supprimerTicket($idBillet);
-        header('Location: .');
-        die();
+        header('Location: index.php?action=gestiontickets');
+    }
+    
+    // trier les tickets par etat
+    public function filtrer($etat){
+        $billets = $this->billet->rqfiltre($etat);
+        $vue = new Vue("Accueil");
+        $vue->generer(array('billets' => $billets));
     }
 
-    public function filtrer($etat)
-    {
-        $this->billet->rqfiltre($etat);
+    // Ajoute un commentaire à un billet
+    public function commenter($auteur, $contenu, $idBillet){
+    // Sauvegarde du commentaire
+    $this->commentaire->ajouterCommentaire($auteur, $contenu, $idBillet);
+    // Actualisation de l'affichage du billet
+    $this->billet($idBillet);
     }
+
 }

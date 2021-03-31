@@ -16,52 +16,46 @@ class ControleurEtat
         $this->billet = new Billet();
     }
 
-    // Affiche les détails sur un etat
-    public function etat()
-    {
+    // Affiche liste des etats
+    public function etat(){
         $etats = $this->etat->getEtats();
         $vue = new Vue("Etat");
         $vue->generer(array('etats' => $etats));
     }
-    public function ajouterEtat($nom)
-    {
-        // Sauvegarde l'etat
+    // vue form ajout etat
+    public function formajoutetat(){
+        $vue = new Vue("AddEtat");
+        $vue->generer(array());
+    }
+    // Sauvegarde de l'etat
+    public function ajouterEtat($nom){
         $this->etat->ajouterEtat($nom);
         header('Location: index.php?action=gestionsetat');
         die();
     }
-    public function supprimerEtat($idEtat)
-    {
-        try {
-            $this->etat->supprimerEtat($idEtat);
-            header('Location: index.php?action=gestionsetat');
-        } catch (Exception $e) {
 
-            $etat = $this->etat->getEtat($idEtat);
-            $etatspp = $this->etat->getEtatSpp($idEtat);
-            $vue = new Vue("SuprimerErreur");
-            $vue->generer(array('etat' => $etat, 'etatspp' => $etatspp));
-
-        }
-    }
-    public function vuesupprimer($idEtat, $idBillet)
-    {
-        
-    }
-    public function editEtat($idEtat)
-    {
+    // vue edit etat
+    public function editEtat($idEtat){
         $etat = $this->etat->getEtat($idEtat);
         $vue = new Vue("editEtat");
         $vue->generer(array('etat' => $etat));
     }
-
-    public function modifieretat($idEtat, $nomEtat)
-    {
+    // update etat
+    public function modifieretat($idEtat, $nomEtat){
         $this->etat->modifierEtat($idEtat, $nomEtat);
         header("location: index.php?action=gestionsetat");
-        die();
-        
-        // Actualisation de l'affichage de l'etat
+    }
 
+    // suppression de l'etat
+    public function supprimerEtat($idEtat){
+        try {
+            $this->etat->supprimerEtat($idEtat);
+            header('Location: index.php?action=gestionsetat');
+        } catch (Exception $e) {
+            $etat = $this->etat->getEtat($idEtat);
+            $etatspp = $this->etat->getEtatSpp($idEtat);
+            $vue = new Vue("SuprimerErreur");
+            $vue->generer(array('etat' => $etat, 'etatspp' => $etatspp));
+        }
     }
 }

@@ -11,7 +11,7 @@ class ControleurAccueil {
     $this->billet = new Billet();
   }
 
-  // Affiche la liste de tous les billets du blog
+  // Affiche la liste de tous les tickets
   public function accueil() {
     $billets = $this->billet->getBillets();
     $vue = new Vue("Accueil");

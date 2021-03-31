@@ -29,10 +29,15 @@ class Routeur
                         $this->ctrlBillet->billet($idBillet);
                     } else
                         throw new Exception("Identifiant de billet non valide");
-                } else if ($_GET['action'] == 'ajouter') {
-                    $titre = $this->getParametre($_POST, 'titre');
-                    $demande = $this->getParametre($_POST, 'demande');
-                    $this->ctrlBillet->ajouterTicket($titre, $demande);
+                }else if ($_GET['action'] == 'gestiontickets') {
+                    $this->ctrlAccueil->accueil();
+                }else if ($_GET['action'] == 'formajoutticket' || $_GET['action'] == 'ajouterticket') {
+                    if(isset($_POST['submit'])){
+                        $titre = $this->getParametre($_POST, 'titre');
+                        $description = $this->getParametre($_POST, 'description');
+                        $this->ctrlBillet->ajouterTicket($titre, $description);
+                       }
+                       $this->ctrlBillet->formajoutticket();
                 } else if ($_GET['action'] == 'editerticket') {
                     $idBillet = intval($this->getParametre($_GET, 'id'));
                     $this->ctrlBillet->editerticket($idBillet);
@@ -50,16 +55,14 @@ class Routeur
                     $contenu = $this->getParametre($_POST, 'contenu');
                     $idBillet = $this->getParametre($_POST, 'id');
                     $this->ctrlBillet->commenter($auteur, $contenu, $idBillet);
-                }
-                /*else if ($_GET['action'] == 'modifieretat'){
-                    $etat = $this->getParametre($_POST, 'etats');
-                    $idBillet = $this->getParametre($_POST, 'id');
-                    $this->ctrlBillet->modifieretat($etat, $idBillet);
-                }*/ else if ($_GET['action'] == 'gestionsetat') {
+                } else if ($_GET['action'] == 'gestionsetat') {
                     $this->ctrlEtat->etat();
-                } else if ($_GET['action'] == 'ajouterEtat') {
+                } else if ($_GET['action'] == 'formajoutetat' || $_GET['action'] == 'ajoutetat') {
+                     if(isset($_POST['submit'])){
                     $nom = $this->getParametre($_POST, 'nom');
                     $this->ctrlEtat->ajouterEtat($nom);
+                     }
+                     $this->ctrlEtat->formajoutetat();
                 } else if ($_GET['action'] == 'supprimerEtat') {
                     $idEtat = intval($this->getParametre($_GET, 'id'));
                     $this->ctrlEtat->supprimerEtat($idEtat);
