@@ -56,8 +56,9 @@
                                         <span class="pull-right">142</span></a>
                                 </li>
 
-                                <li <?php if($_GET['action'] == "gestionsetat" || $_GET['action'] == 'editetat'):?>class="active"
-                                    <?php endif;?>>
+                                <li <?php if($_GET['action'] == "gestionsetat" 
+                                || $_GET['action'] == 'editetat'
+                                || $_GET['action'] == 'supprimerEtat'):?>class="active" <?php endif;?>>
                                     <a href="index.php?action=gestionsetat">Gestions des Etats
                                         <span class="pull-right">52</span></a></li>
 
