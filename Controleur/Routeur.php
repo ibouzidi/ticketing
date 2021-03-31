@@ -70,6 +70,9 @@ class Routeur
                     $idEtat = intval($this->getParametre($_POST, 'id'));
                     $nom = $this->getParametre($_POST, 'nom');
                     $this->ctrlEtat->modifierEtat($idEtat, $nom);
+                } else if ($_GET['action'] == 'rechercher') {
+                    $etat = $this->getParametre($_POST, 'etat');
+                    $this->ctrlBillet->filtrer($etat);
                 } else
                     throw new Exception("Action non valide");
             } else {  // aucune action définie : affichage de l'accueil

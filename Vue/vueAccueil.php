@@ -1,6 +1,15 @@
 <?php $titre = 'Gestionnaire des tickets'; ?>
 
+<form action="index.php?action=rechercher" method="post" name="filtre">
 
+    <select name="etat">
+        <option value="Ouvert" selected>ouvert</option>
+        <option value="Fermé">ferme</option>
+    </select>
+
+    <input type="submit" value="Envoyer">
+
+</form>
 
 <?php foreach ($billets as $billet) : ?>
     <div class="col-md-12">

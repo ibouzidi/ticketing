@@ -70,4 +70,9 @@ class ControleurBillet
         header('Location: .');
         die();
     }
+
+    public function filtrer($etat)
+    {
+        $this->billet->rqfiltre($etat);
+    }
 }

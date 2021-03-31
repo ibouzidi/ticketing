@@ -23,7 +23,7 @@ abstract class Modele
             $this->bdd = new PDO(
                 'mysql:host=localhost;dbname=ticketing;charset=utf8',
                 'root',
-                'toor',
+                '',
                 array(PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION)
             );
         }

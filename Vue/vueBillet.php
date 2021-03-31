@@ -22,7 +22,8 @@
         <h4>Commentaires du ticket :</h4>
         <?php foreach ($commentaires as $commentaire) : ?>
             <p><?= $commentaire['auteur'] ?> dit le
-                <time><?= strftime("%a %d %b %Y %H:%M:%S", strtotime($commentaire['date'])); ?>:</p>
+                <time><?= strftime("%a %d %b %Y %H:%M:%S", strtotime($commentaire['date'])); ?>:
+            </p>
             <p><?= $commentaire['contenu'] ?></p>
             <hr>
         <?php endforeach; ?>

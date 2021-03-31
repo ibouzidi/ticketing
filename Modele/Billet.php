@@ -57,4 +57,11 @@ class Billet extends Modele
 		$afficher_etats = $this->executerRequete($sql, array($etats));
 		return $afficher_etats;
 	}
+
+	public function rqfiltre($etat)
+	{
+		$sql = 'SELECT * FROM etats WHERE nom_etat = ' . $etat;
+		$filtre = $this->executerRequete($sql, $etat);
+		return $filtre;
+	}
 }
