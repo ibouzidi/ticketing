@@ -12,13 +12,12 @@
             <label class="label-filtre">Trier par:</label>
             <form class="form-inline" action="index.php?action=rechercher" method="post" name="filtre">
                 <select name="etat" class="form-control">
-                    <option value=" Ouvert" selected>ouvert</option>
-                    <option value="Fermé">ferme</option>
-
+                    <?php foreach ($etats as $etat) : ?>
+                    <option value="<?= $etat['nom_etat'] ?>"><?= $etat['nom_etat'] ?></option>
+                    <?php endforeach; ?>
                 </select>
                 <button type="submit" class="btn btn-info btn-filtre mx-2">Envoyer</button>
             </form>
-
         </div>
     </div>
 </div>

@@ -29,7 +29,9 @@ class Routeur
                         $this->ctrlBillet->billet($idBillet);
                     } else
                         throw new Exception("Identifiant de billet non valide");
-                }else if ($_GET['action'] == 'gestiontickets') {
+                }
+                // routes des tickets
+                else if ($_GET['action'] == 'gestiontickets') {
                     $this->ctrlAccueil->accueil();
                 }else if ($_GET['action'] == 'formajoutticket' || $_GET['action'] == 'ajouterticket') {
                     if(isset($_POST['submit'])){
@@ -50,14 +52,18 @@ class Routeur
                 } else if ($_GET['action'] == 'supprimer') {
                     $idBillet = intval($this->getParametre($_GET, 'id'));
                     $this->ctrlBillet->supprimerTicket($idBillet);
-                } else if ($_GET['action'] == 'commenter') {
+                } 
+                // route commentaire
+                else if ($_GET['action'] == 'commenter') {
                     $auteur = $this->getParametre($_POST, 'auteur');
                     $contenu = $this->getParametre($_POST, 'contenu');
                     $idBillet = $this->getParametre($_POST, 'id');
                     $this->ctrlBillet->commenter($auteur, $contenu, $idBillet);
-                } else if ($_GET['action'] == 'gestionsetat') {
+                } 
+                // routes des etats
+                else if ($_GET['action'] == 'gestionsetat') {
                     $this->ctrlEtat->etat();
-                } else if ($_GET['action'] == 'formajoutetat' || $_GET['action'] == 'ajoutetat') {
+                }else if ($_GET['action'] == 'formajoutetat' || $_GET['action'] == 'ajoutetat') {
                      if(isset($_POST['submit'])){
                     $nom = $this->getParametre($_POST, 'nom');
                     $this->ctrlEtat->ajouterEtat($nom);
@@ -73,8 +79,11 @@ class Routeur
                     $idEtat = intval($this->getParametre($_POST, 'id'));
                     $nom = $this->getParametre($_POST, 'nom');
                     $this->ctrlEtat->modifierEtat($idEtat, $nom);
-                } else if ($_GET['action'] == 'rechercher') {
+                } 
+                // routes filtre
+                else if ($_GET['action'] == 'rechercher') {
                     $etat = $this->getParametre($_POST, 'etat');
+
                     $this->ctrlBillet->filtrer($etat);
                 } else
                     throw new Exception("Action non valide");
