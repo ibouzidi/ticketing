@@ -27,10 +27,10 @@ class Billet extends Modele
 
     }
     // Permet d'ajouter un nouveau ticket
-    public function ajouterTicket($titre, $description)
+    public function ajouterTicket($titre, $description, $etat)
     {
-        $sql = 'INSERT INTO t_ticket(TIC_DATE, TIC_TITRE, TIC_CONTENU, TIC_ETAT) values(NOW(), ?, ?, 1)';
-        $sql = $this->executerRequete($sql, array($titre, $description));
+        $sql = "INSERT INTO t_ticket(TIC_DATE, TIC_TITRE, TIC_CONTENU, TIC_ETAT) values(NOW(), ?, ?, ?)";
+        $sql = $this->executerRequete($sql, array($titre, $description, $etat));
     }
     // Permet de metre à jour un ticket
     public function modifierTicket($idBillet, $titre, $content, $etats)
@@ -42,7 +42,9 @@ class Billet extends Modele
     // Permet de supprimer un ticket
     public function supprimerTicket($idBillet)
     {
-        $sql = 'DELETE FROM t_ticket WHERE TIC_ID = ?';
+        $sql = 'DELETE FROM t_ticket  WHERE TIC_ID = ?';
+        $sql = $this->executerRequete($sql, array($idBillet));
+        $sql = 'DELETE FROM t_commentaire  WHERE tic_ID = ?';
         $sql = $this->executerRequete($sql, array($idBillet));
     }
 
@@ -63,7 +65,6 @@ class Billet extends Modele
 
     public function rqfiltre($etat)
     {
-
         $sql = "SELECT t.TIC_ID AS id_billet, t.TIC_DATE, t.TIC_TITRE, t.TIC_CONTENU, t.TIC_ETAT, e.id, e.nom_etat FROM t_ticket t INNER JOIN etats e ON e.id = t.TIC_ETAT WHERE e.nom_etat LIKE '%$etat%' ";
         $filtre = $this->executerRequete($sql);
         return $filtre;

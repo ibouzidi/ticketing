@@ -14,8 +14,13 @@
     <p><?= $commentaire['auteur'] ?> dit le
         <time><?= strftime("%a %d %b %Y %H:%M:%S", strtotime($commentaire['date'])); ?>
     </p>
+    <a onclick="return confirm('&Ecirc;tes-vous sûr de vouloir supprimer ce commantaire ?')"
+        href="index.php?action=suppcomm&id=<?=$commentaire['id']?>" class="btn btn-danger btn-sm pull-right"><i
+            class="fa fa-trash fa-lg"></i></a>
     <p><?= $commentaire['contenu'] ?></p>
+
     <hr>
+
     <?php endforeach; ?>
     <h5 id="titreReponses">Réponses à <?= $billet['titre'] ?></h5>
     <form method="post" action="index.php?action=commenter">

@@ -18,6 +18,7 @@ h1 {
 .btn-warning,
 .btn-danger {
 	width: auto;
+	margin-top: 5px;
 	margin-left: 5px;
 	line-height: 5px;
 	text-transform: uppercase;

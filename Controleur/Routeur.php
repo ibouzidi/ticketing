@@ -37,7 +37,8 @@ class Routeur
                     if(isset($_POST['submit'])){
                         $titre = $this->getParametre($_POST, 'titre');
                         $description = $this->getParametre($_POST, 'description');
-                        $this->ctrlBillet->ajouterTicket($titre, $description);
+                        $etat = $this->getParametre($_POST, 'etat');
+                        $this->ctrlBillet->ajouterTicket($titre, $description, $etat);
                        }
                        $this->ctrlBillet->formajoutticket();
                 } else if ($_GET['action'] == 'editerticket') {
@@ -59,7 +60,10 @@ class Routeur
                     $contenu = $this->getParametre($_POST, 'contenu');
                     $idBillet = $this->getParametre($_POST, 'id');
                     $this->ctrlBillet->commenter($auteur, $contenu, $idBillet);
-                } 
+                } else if ($_GET['action'] == 'suppcomm') {
+                    $idcom = intval($this->getParametre($_GET, 'id'));
+                    $this->ctrlBillet->supprimerComm($idcom);
+                }
                 // routes des etats
                 else if ($_GET['action'] == 'gestionsetat') {
                     $this->ctrlEtat->etat();
@@ -83,7 +87,6 @@ class Routeur
                 // routes filtre
                 else if ($_GET['action'] == 'rechercher') {
                     $etat = $this->getParametre($_POST, 'etat');
-
                     $this->ctrlBillet->filtrer($etat);
                 } else
                     throw new Exception("Action non valide");

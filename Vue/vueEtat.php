@@ -20,7 +20,7 @@
                         <th scope="row"><?= $etat['id'] ?></th>
                         <td><?= $etat['nom_etat'] ?></td>
                         <td>
-                            <a onclick="return confirm('&Ecirc;tes-vous sûr de vouloir supprimer ce ticket ?')"
+                            <a onclick="return confirm('&Ecirc;tes-vous sûr de vouloir supprimer cet etat ?')"
                                 class="btn btn-danger btn-sm "
                                 href="index.php?action=supprimerEtat&id=<?= $etat['id'] ?>"><i
                                     class="fa fa-trash fa-lg"></i></a>

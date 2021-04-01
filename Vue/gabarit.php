@@ -83,10 +83,10 @@
                             <hr>
                             <div class="padding"></div>
 
-                            <div class="row">
-                                <?=$contenu?>
 
-                            </div>
+                            <?=$contenu?>
+
+
                         </div>
                     </div>
                 </div>

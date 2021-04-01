@@ -9,11 +9,13 @@ class ControleurBillet
 
     private $billet;
     private $commentaire;
+    private $etat;
 
     public function __construct()
     {
         $this->billet = new Billet();
         $this->commentaire = new Commentaire();
+        $this->etat = new Etat();
     }
 
     // Affiche un ticket en particulier
@@ -27,14 +29,19 @@ class ControleurBillet
 
     // vue form ajout ticket
     public function formajoutticket(){
+        $etats = $this->etat->getEtats();
         $vue = new Vue("AddTicket");
-        $vue->generer(array());
+        $vue->generer(array('etats' => $etats));
     }
 
     // Sauvegarde un ticket
-    public function ajouterTicket($titre, $description){
-        $this->billet->ajouterticket($titre, $description);
-        header('Location: index.php?action=gestiontickets');
+    public function ajouterTicket($titre, $description, $etat){
+        if (!empty($_POST['titre']) && !empty($_POST['description'])) {
+                $this->billet->ajouterticket($titre, $description, $etat);
+                header('Location: index.php?action=gestiontickets');
+        }else {
+            throw new Exception("Les champs ne peuvent pas être vide");
+        }
     }
     // vue edit ticket
     public function editerticket($idBillet){
@@ -51,12 +58,14 @@ class ControleurBillet
     // suppression d'un ticket
     public function supprimerTicket($idBillet){
         $this->billet->supprimerTicket($idBillet);
-        header('Location: index.php?action=gestiontickets');
+        header('Location: ' . $_SERVER['HTTP_REFERER']);
     }
     
     // trier les tickets par etat
     public function filtrer($etat){
+   
         $billets = $this->billet->rqfiltre($etat);
+    
         $vue = new Vue("Accueil");
         $vue->generer(array('billets' => $billets));
     }
@@ -67,6 +76,12 @@ class ControleurBillet
     $this->commentaire->ajouterCommentaire($auteur, $contenu, $idBillet);
     // Actualisation de l'affichage du billet
     $this->billet($idBillet);
+ 
+    }
+    // suppression d'un ticket
+    public function supprimerComm($idcom){
+        $this->commentaire->supprimerComm($idcom);
+        header('Location: ' . $_SERVER['HTTP_REFERER']);
     }
 
 }
