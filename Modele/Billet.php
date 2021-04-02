@@ -77,4 +77,41 @@ class Billet extends Modele
         }
         
     }
+
+    // Affiche la liste des tickets
+    public function getNbTicketsOuvert()
+    {
+        $sql = "SELECT COUNT(*) as nbticketouvert FROM t_ticket t INNER JOIN etats e ON e.id = t.TIC_ETAT 
+        WHERE e.nom_etat LIKE '%ouvert%' ";
+        $nbtickets = $this->executerRequete($sql);
+            if ($nbtickets->rowCount() > 0) {
+            return $nbtickets->fetch();
+            }else{
+                throw new Exception('0');
+            }
+    }
+    // Affiche la liste des tickets
+    public function getNbTicketsFermer()
+    {
+        $sql = "SELECT COUNT(*) as nbticketferme FROM t_ticket t INNER JOIN etats e ON e.id = t.TIC_ETAT
+        WHERE e.nom_etat LIKE '%fermé%' ";
+        $nbtickets = $this->executerRequete($sql);
+        if ($nbtickets->rowCount() > 0) {
+            return $nbtickets->fetch();
+        }else{
+            throw new Exception('0');
+        }
+    }
+
+    // Affiche la liste des tickets
+    public function getNbTickets()
+    {
+        $sql = "SELECT COUNT(*) as nbtickets FROM t_ticket";
+        $nbtickets = $this->executerRequete($sql);
+        if ($nbtickets->rowCount() > 0) {
+            return $nbtickets->fetch();
+        }else{
+            throw new Exception('0');
+    }
+    }
 }

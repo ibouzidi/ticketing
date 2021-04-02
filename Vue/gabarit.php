@@ -53,14 +53,14 @@
                                 || $_GET['action'] == "commenter"
                                 ):?>class="active" <?php endif;?>>
                                     <a href="index.php?action=gestiontickets">Gestions des tickets
-                                        <span class="pull-right">142</span></a>
+                                        <!-- <span class="pull-right">142</span></a> -->
                                 </li>
 
                                 <li <?php if($_GET['action'] == "gestionsetat" 
                                 || $_GET['action'] == 'editetat'
                                 || $_GET['action'] == 'supprimerEtat'):?>class="active" <?php endif;?>>
                                     <a href="index.php?action=gestionsetat">Gestions des Etats
-                                        <span class="pull-right">52</span></a></li>
+                                        <!-- <span class="pull-right">52</span></a></li> -->
 
                                 <li <?php if($_GET['action'] == "formajoutticket"):?>class="active" <?php endif;?>>
                                     <a href="index.php?action=formajoutticket">Ajouter un ticket</a></li>

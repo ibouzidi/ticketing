@@ -8,7 +8,9 @@
 </div>
 
 <div class="commentaire">
-
+    <h4 class="nbcom">
+        <i class="fa fa-comments"></i><?= $nbComms['nbComm'] ;?> commentaires
+    </h4>
     <h4>Commentaires du ticket :</h4>
     <?php foreach ($commentaires as $commentaire) : ?>
     <p><?= $commentaire['auteur'] ?> dit le

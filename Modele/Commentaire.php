@@ -20,9 +20,16 @@ class Commentaire extends Modele {
 	}
 
 	// Permet de supprimer un commentaire
-	   public function supprimerComm($idcom)
-	   {
-		  $sql = 'DELETE FROM t_commentaire WHERE COM_ID = ?';
-		  $sql = $this->executerRequete($sql, array($idcom));
-	   }
+	public function supprimerComm($idcom)
+	{
+		$sql = 'DELETE FROM t_commentaire WHERE COM_ID = ?';
+		$sql = $this->executerRequete($sql, array($idcom));
+	}
+
+	public function getNbComm($idBillet)
+	{
+		$sql = "SELECT COUNT(COM_ID) as nbComm FROM t_commentaire WHERE tic_ID = ? ";
+		return $this->executerRequete($sql, array($idBillet))->fetch();
+
+	}
 }

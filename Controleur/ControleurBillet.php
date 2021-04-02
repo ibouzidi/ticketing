@@ -23,8 +23,10 @@ class ControleurBillet
         $billet = $this->billet->getBillet($idBillet);
         $etats = $this->billet->Etats($billet['nom_etat']);
         $commentaires = $this->commentaire->getCommentaires($idBillet);
+        $nbComms = $this->commentaire->getNbComm($idBillet);
         $vue = new Vue("Billet");
-        $vue->generer(array('billet' => $billet, 'etats' => $etats, 'commentaires' => $commentaires));
+        $vue->generer(array('billet' => $billet, 'etats' => $etats, 'commentaires' => $commentaires, 
+        'nbComms' => $nbComms));
     }
 
     // vue form ajout ticket
@@ -68,9 +70,18 @@ class ControleurBillet
         }else{
              throw new Exception("Action non valide");
         }
+        $nbtickets = $this->billet->getNbTickets();
+        $nbticketsOuvert = $this->billet->getNbTicketsOuvert();
+        $nbticketsFermer = $this->billet->getNbTicketsFermer();
         $etats = $this->etat->getEtats();
         $vue = new Vue("Accueil");
-        $vue->generer(array('billets' => $billets, 'etats' => $etats));
+        $vue->generer(array(
+            'billets' => $billets, 
+            'etats' => $etats, 
+            'nbtickets' => $nbtickets,
+            'nbticketsOuvert' =>$nbticketsOuvert,
+            'nbticketsFermer' => $nbticketsFermer
+            ));
     }
 
     // Ajoute un commentaire à un billet

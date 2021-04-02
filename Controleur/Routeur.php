@@ -102,7 +102,9 @@ class Routeur
                 // }
                 // aucune action définie : affichage de l'accueil
                 $this->ctrlAccueil->accueil();
+               
             }
+            
         } catch (Exception $e) {
             $this->erreur($e->getMessage());
         }

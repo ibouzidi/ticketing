@@ -51,6 +51,14 @@ a {
 	background-color: #e2e3e5;
 }
 
+.commentaire .fa-comments {
+	padding-right: 1rem;
+}
+
+.commentaire .nbcom {
+	color: #2B343D;
+}
+
 /* GRID */
 .col {
 	padding: 10px 20px;
@@ -266,4 +274,8 @@ a {
 
 .boxfiltre .closeticket {
 	background-color: #FF2A2A;
+}
+
+.boxfiltre .tottickets {
+	background-color: #2B343D;
 }

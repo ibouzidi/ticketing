@@ -4,8 +4,9 @@
 
 <div class="boxfiltre">
     <div>
-        <p class="openticket">162 Ouvert</p>
-        <p class="closeticket">95,721 Fermé</p>
+        <p class="tottickets"><span><?= $nbtickets['nbtickets']?></span> tickes totale</p>
+        <p class="openticket"><span><?= $nbticketsOuvert['nbticketouvert']?></span> Ouvert</p>
+        <p class="closeticket"><span><?= $nbticketsFermer['nbticketferme']?></span> Fermé</p>
     </div>
     <div>
         <form class="form-inline" action="index.php?action=rechercher" method="POST">
