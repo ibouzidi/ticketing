@@ -62,12 +62,15 @@ class ControleurBillet
     }
     
     // trier les tickets par etat
-    public function filtrer($etat){
-   
-        $billets = $this->billet->rqfiltre($etat);
-    
+    public function filtreParEtat($qetat){
+        if(isset($qetat)){
+            $billets = $this->billet->rqFiltreParEtat($qetat);
+        }else{
+             throw new Exception("Action non valide");
+        }
+        $etats = $this->etat->getEtats();
         $vue = new Vue("Accueil");
-        $vue->generer(array('billets' => $billets));
+        $vue->generer(array('billets' => $billets, 'etats' => $etats));
     }
 
     // Ajoute un commentaire à un billet

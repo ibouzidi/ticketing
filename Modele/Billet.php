@@ -63,11 +63,18 @@ class Billet extends Modele
         return $afficher_etats;
     }
 
-    public function rqfiltre($etat)
+    public function rqFiltreParEtat($qetat)
     {
-        $sql = "SELECT t.TIC_ID AS id_billet, t.TIC_DATE, t.TIC_TITRE, t.TIC_CONTENU, t.TIC_ETAT, e.id, e.nom_etat FROM t_ticket t INNER JOIN etats e ON e.id = t.TIC_ETAT WHERE e.nom_etat LIKE '%$etat%' ";
-        $filtre = $this->executerRequete($sql);
-        return $filtre;
-
+        $sql = "SELECT t.TIC_ID AS id_billet, t.TIC_DATE, t.TIC_TITRE, t.TIC_CONTENU, t.TIC_ETAT, e.id, e.nom_etat FROM
+        t_ticket t INNER JOIN etats e ON e.id = t.TIC_ETAT WHERE e.nom_etat LIKE '%$qetat%' ";
+        $rqetat = $this->executerRequete($sql);
+        if ($rqetat->rowCount() > 0) {
+            return $rqetat;
+        }
+        else
+        {
+            throw new Exception('Aucun ticket ne correspond à l\'etat : ['.$qetat. ']');
+        }
+        
     }
 }

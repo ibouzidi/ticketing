@@ -33,7 +33,8 @@ class Routeur
                 // routes des tickets
                 else if ($_GET['action'] == 'gestiontickets') {
                     $this->ctrlAccueil->accueil();
-                }else if ($_GET['action'] == 'formajoutticket' || $_GET['action'] == 'ajouterticket') {
+                }
+                else if ($_GET['action'] == 'formajoutticket' || $_GET['action'] == 'ajouterticket') {
                     if(isset($_POST['submit'])){
                         $titre = $this->getParametre($_POST, 'titre');
                         $description = $this->getParametre($_POST, 'description');
@@ -86,11 +87,20 @@ class Routeur
                 } 
                 // routes filtre
                 else if ($_GET['action'] == 'rechercher') {
-                    $etat = $this->getParametre($_POST, 'etat');
-                    $this->ctrlBillet->filtrer($etat);
-                } else
+                    $qetat = $this->getParametre($_POST, 'qetat');
+                    $this->ctrlBillet->filtreParEtat($qetat);
+                } 
+                else
                     throw new Exception("Action non valide");
-            } else {  // aucune action définie : affichage de l'accueil
+            } 
+            else {
+                // try {
+                //     $qetat = $this->getParametre($_GET, 'qetat');
+                // }
+                // catch (Exception $e) {
+                //     $qetat=null;
+                // }
+                // aucune action définie : affichage de l'accueil
                 $this->ctrlAccueil->accueil();
             }
         } catch (Exception $e) {

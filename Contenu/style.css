@@ -12,6 +12,13 @@ h1 {
 	color: #000;
 }
 
+ul {
+	list-style-type: none;
+}
+
+a {
+	text-decoration: none;
+}
 
 
 .btn-success,
@@ -218,4 +225,45 @@ h1 {
 
 .listeticket {
 	width: 100%;
+}
+
+/* .section-filtre {}
+
+
+.section-filtre li {
+	float: left;
+	display: block;
+	padding-left: 1rem;
+}
+
+.section-filtre ul {
+	margin: 0;
+	padding: 0;
+	overflow: hidden;
+} */
+
+.boxfiltre {
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	grid-gap: 10px 2em;
+}
+
+.boxfiltre :first-child {
+	align-self: center;
+}
+
+.boxfiltre p {
+	padding-left: 1rem;
+	display: inline;
+	font-size: 1rem;
+	padding: 0.5rem;
+	color: white;
+}
+
+.boxfiltre .openticket {
+	background-color: #208837;
+}
+
+.boxfiltre .closeticket {
+	background-color: #FF2A2A;
 }
