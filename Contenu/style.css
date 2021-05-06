@@ -36,12 +36,6 @@ h1 {
 	border-radius: .25em;
 }
 
-.commentaire {
-	margin-left: 50px;
-	padding: 20px;
-	background-color: #f5f5f5;
-}
-
 /* GRID */
 .col {
 	padding: 10px 20px;

@@ -36,11 +36,6 @@ class Routeur
                 } else if ($_GET['action'] == 'supprimer') {
                     $idBillet = intval($this->getParametre($_GET, 'id'));
                     $this->ctrlBillet->supprimerTicket($idBillet);
-                } else if ($_GET['action'] == 'commenter') {
-                    $auteur = $this->getParametre($_POST, 'auteur');
-                    $contenu = $this->getParametre($_POST, 'contenu');
-                    $idBillet = $this->getParametre($_POST, 'id');
-                    $this->ctrlBillet->commenter($auteur, $contenu, $idBillet);
                 } else if ($_GET['action'] == 'gestionsetat') {
                     $this->ctrlEtat->etat();
                 } else if ($_GET['action'] == 'ajouterEtat') {
