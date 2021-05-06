@@ -16,26 +16,4 @@
         <p><?= $billet['contenu'] ?></p>
         <hr>
     </div>
-    <div class="commentaire">
-
-
-        <h4>Commentaires du ticket :</h4>
-        <?php foreach ($commentaires as $commentaire) : ?>
-            <p><?= $commentaire['auteur'] ?> dit le
-                <time><?= strftime("%a %d %b %Y %H:%M:%S", strtotime($commentaire['date'])); ?>:</p>
-            <p><?= $commentaire['contenu'] ?></p>
-            <hr>
-        <?php endforeach; ?>
-        <h5 id="titreReponses">Réponses à <?= $billet['titre'] ?></h5>
-        <form method="post" action="index.php?action=commenter">
-            <div class="form-group">
-                <input id="auteur" name="auteur" type="text" class="form-control" placeholder="Votre pseudo" required />
-            </div>
-            <div class="form-group">
-                <textarea id="txtCommentaire" name="contenu" rows="7" class="form-control" placeholder="Votre commentaire" required></textarea>
-            </div>
-            <input type="hidden" name="id" value="<?= $billet['id'] ?>" />
-            <input type="submit" name="ajouter_commenter" value="Envoyer commentaire" class="btn btn-primary" />
-        </form>
-    </div>
 </div>
