@@ -1,5 +1,5 @@
       <h2>Ajouter un nouveau ticket</h2>
-      <form method="post" action="index.php?action=ajouter">
+      <form method="post" action="index.php?action=ajoutTicket">
           <div class="form-group">
               <input class="form-control" id="titre" name="titre" type="text" placeholder="L'objet de la demande"
                   required />

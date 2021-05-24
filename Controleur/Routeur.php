@@ -29,16 +29,16 @@ class Routeur
                         $this->ctrlBillet->billet($idBillet);
                     } else
                         throw new Exception("Identifiant de billet non valide");
-                } else if ($_GET['action'] == 'ajouter') {
+                } else if ($_GET['action'] == 'ajoutTicket') { // action ajouter un ticket
                     $titre = $this->getParametre($_POST, 'titre');
                     $demande = $this->getParametre($_POST, 'demande');
                     $this->ctrlBillet->ajouterTicket($titre, $demande);
-                } else if ($_GET['action'] == 'supprimer') {
+                } else if ($_GET['action'] == 'supprimer') { // action supp un ticket
                     $idBillet = intval($this->getParametre($_GET, 'id'));
                     $this->ctrlBillet->supprimerTicket($idBillet);
-                } else if ($_GET['action'] == 'gestionsetat') {
+                } else if ($_GET['action'] == 'gestionsetat') { // page gestion des états
                     $this->ctrlEtat->etat();
-                } else if ($_GET['action'] == 'ajouterEtat') {
+                } else if ($_GET['action'] == 'ajouterEtat') { // ajout états
                     $nom = $this->getParametre($_POST, 'nom');
                     $this->ctrlEtat->ajouterEtat($nom);
                 } else if ($_GET['action'] == 'supprimerEtat') {
