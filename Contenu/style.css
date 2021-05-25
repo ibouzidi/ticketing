@@ -1,6 +1,6 @@
 body {
 	color: #000;
-	background-color: #222;
+	background-color: #F7F7F7;
 	font-family: 'Futura-Medium', 'Futura', 'Trebuchet MS', sans-serif;
 }
 
@@ -10,6 +10,14 @@ p {
 
 h1 {
 	color: #000;
+}
+
+ul {
+	list-style-type: none;
+}
+
+a {
+	text-decoration: none;
 }
 
 
@@ -193,4 +201,22 @@ h1 {
 .support-content .info .fa {
 	width: 1.5em;
 	text-align: center;
+}
+
+.message-alert {
+	width: 100%;
+	padding: 0.2rem;
+	text-align: center;
+	background-color: #ffedb4;
+	color: #000;
+	font-size: 1rem;
+	margin-bottom: 1rem;
+}
+
+.message-alert span {
+	color: red;
+}
+
+.listeticket {
+	width: 100%;
 }
