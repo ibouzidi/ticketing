@@ -29,25 +29,38 @@ class Routeur
                         $this->ctrlBillet->billet($idBillet);
                     } else
                         throw new Exception("Identifiant de billet non valide");
-                } else if ($_GET['action'] == 'ajoutTicket') { // action ajouter un ticket
+                }
+                // action ajouter un ticket
+                else if ($_GET['action'] == 'ajoutTicket') { 
                     $titre = $this->getParametre($_POST, 'titre');
                     $demande = $this->getParametre($_POST, 'demande');
                     $this->ctrlBillet->ajouterTicket($titre, $demande);
-                } else if ($_GET['action'] == 'supprimer') { // action supp un ticket
+                }
+                // action supp un ticket
+                else if ($_GET['action'] == 'supprimer') { 
                     $idBillet = intval($this->getParametre($_GET, 'id'));
                     $this->ctrlBillet->supprimerTicket($idBillet);
-                } else if ($_GET['action'] == 'gestionsetat') { // page gestion des états
+                } 
+                // page liste des états
+                else if ($_GET['action'] == 'gestionsetat') { 
                     $this->ctrlEtat->etat();
-                } else if ($_GET['action'] == 'ajouterEtat') { // ajout états
+                } 
+                else if ($_GET['action'] == 'ajouterEtat') { // action ajout états
                     $nom = $this->getParametre($_POST, 'nom');
                     $this->ctrlEtat->ajouterEtat($nom);
-                } else if ($_GET['action'] == 'supprimerEtat') {
+                }
+                //action supp un état
+                else if ($_GET['action'] == 'supprimerEtat') { 
                     $idEtat = intval($this->getParametre($_GET, 'id'));
                     $this->ctrlEtat->supprimerEtat($idEtat);
-                } else if ($_GET['action'] == 'editetat') {
+                }
+                //action éditer un etat en particulier
+                else if ($_GET['action'] == 'editetat') {
                     $idEtat = intval($this->getParametre($_GET, 'id'));
                     $this->ctrlEtat->editEtat($idEtat);
-                } else if ($_GET['action'] == 'modifieretat') {
+                } 
+                //modifier un état en particulier
+                else if ($_GET['action'] == 'modifieretat') {
                     $idEtat = intval($this->getParametre($_POST, 'id'));
                     $nom = $this->getParametre($_POST, 'nom');
                     $this->ctrlEtat->modifierEtat($idEtat, $nom);

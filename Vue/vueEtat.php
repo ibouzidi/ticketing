@@ -14,6 +14,7 @@
                     </tr>
                 </thead>
                 <tbody>
+                <!-- affiche les états -->
                     <?php foreach ($etats as $etat) : ?>
                     <tr>
 
@@ -26,7 +27,6 @@
                                     class="fa fa-trash fa-lg"></i></a>
                             <a href="index.php?action=editetat&id=<?= $etat['id'] ?>" class="btn btn-warning btn-sm "><i
                                     class="fa fa-edit fa-lg"></i></a>
-
                     </tr>
                     <?php endforeach; ?>
                 </tbody>

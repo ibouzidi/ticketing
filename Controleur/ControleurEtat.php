@@ -16,38 +16,23 @@ class ControleurEtat
         $this->billet = new Billet();
     }
 
-    // Affiche les détails sur un etat
+    // Affiche tous les états
     public function etat()
     {
         $etats = $this->etat->getEtats();
         $vue = new Vue("Etat");
         $vue->generer(array('etats' => $etats));
     }
+    
+    // Sauvegarde l'etat
     public function ajouterEtat($nom)
     {
-        // Sauvegarde l'etat
         $this->etat->ajouterEtat($nom);
         header('Location: index.php?action=gestionsetat');
         die();
     }
-    public function supprimerEtat($idEtat)
-    {
-        try {
-            $this->etat->supprimerEtat($idEtat);
-            header('Location: index.php?action=gestionsetat');
-        } catch (Exception $e) {
-
-            $etat = $this->etat->getEtat($idEtat);
-            $etatspp = $this->etat->getEtatSpp($idEtat);
-            $vue = new Vue("SuprimerErreur");
-            $vue->generer(array('etat' => $etat, 'etatspp' => $etatspp));
-
-        }
-    }
-    public function vuesupprimer($idEtat, $idBillet)
-    {
-        
-    }
+    
+    // formulaire édition d'un état
     public function editEtat($idEtat)
     {
         $etat = $this->etat->getEtat($idEtat);
@@ -55,13 +40,27 @@ class ControleurEtat
         $vue->generer(array('etat' => $etat));
     }
 
+    // mise à jour d'un état
     public function modifieretat($idEtat, $nomEtat)
     {
         $this->etat->modifierEtat($idEtat, $nomEtat);
         header("location: index.php?action=gestionsetat");
         die();
-        
-        // Actualisation de l'affichage de l'etat
+    }
 
+    // supprimer un état et gére la suppresion d'un état si il est relier à un ticket
+    public function supprimerEtat($idEtat)
+    {
+        try {
+            $this->etat->supprimerEtat($idEtat);
+            header('Location: index.php?action=gestionsetat');
+        } catch (Exception $e) { //si erreur alors
+
+            $etat = $this->etat->getEtat($idEtat);
+            $etatspp = $this->etat->getEtatSpp($idEtat);
+            $vue = new Vue("SuprimerErreur");
+            $vue->generer(array('etat' => $etat, 'etatspp' => $etatspp));
+
+        }
     }
 }

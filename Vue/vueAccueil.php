@@ -1,7 +1,5 @@
 <?php $titre = 'Gestionnaire des tickets'; ?>
 
-
-
 <?php foreach ($billets as $billet) : ?>
     <div class="col-md-12">
         <ul class="list-group fa-padding">
@@ -9,6 +7,7 @@
                 <div class="media">
                     <i class="fa fa-tag pull-left"></i>
                     <div class="media-body">
+                        <!-- affiche le ticket selon son état -->
                         <?php if ($billet['TIC_ETAT'] == 1 || $billet['TIC_ETAT'] == 2 || $billet['TIC_ETAT'] == 3 || $billet['TIC_ETAT'] == 4) { ?>
                             <strong class="media-body-title">
                                 <a href="index.php?action=billet&id=<?= $billet['id_billet'] ?>">
@@ -33,9 +32,11 @@
                         <?php } ?>
                         <p class="info">Ouvert par <a href="#">idris
                             </a><time><?= strftime('%a %d %b  %Y %H:%M:%S', strtotime($billet['TIC_DATE'])) ?></time>
-                            <!-- <i class="fa fa-comments"></i><a href="#">2 commentaires</a> -->
                         </p>
-                        <a onclick="return confirm('&Ecirc;tes-vous sûr de vouloir supprimer ce ticket ?')" href="index.php?action=supprimer&id=<?= $billet['id_billet'] ?>" class="btn btn-danger btn-sm pull-right"><i class="fa fa-trash fa-lg"></i></a>
+                        <a onclick="return confirm('&Ecirc;tes-vous sûr de vouloir supprimer ce ticket ?')" 
+                        href="index.php?action=supprimer&id=<?= $billet['id_billet'] ?>" class="btn btn-danger btn-sm pull-right">
+                        <i class="fa fa-trash fa-lg"></i>
+                        </a>
 
 
                     </div>

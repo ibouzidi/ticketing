@@ -1,6 +1,4 @@
 <div class="container">
-
-
     <div class="col-md-6">
         <h2>Editer un Etat</h2>
         <form method="post" action="index.php?action=modifieretat&id=<?= $etat['id'] ?>">

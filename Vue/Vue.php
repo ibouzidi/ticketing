@@ -23,10 +23,9 @@ class Vue {
             setlocale(LC_TIME, "fr_FR", "French");
             require $fichier;
             return ob_get_clean();
-}
-else {
-throw new Exception("Fichier '$fichier' introuvable");
-}
-}
+        }else{
+            throw new Exception("Fichier '$fichier' introuvable");
+        }
+    }
 
 }
