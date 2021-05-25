@@ -1,6 +1,6 @@
 <?php $titre = 'Gestionnaire des tickets'; ?>
 
-<div class="listeticket py-5">
+<div class="listeticket">
     <?php foreach ($billets as $billet): ?>
     <ul class="list-group fa-padding">
         <li class="list-group-item">

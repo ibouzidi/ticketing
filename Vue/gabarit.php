@@ -45,15 +45,12 @@
                                 <li class="active"><a href="index.php">Liste des tickets<span class="pull-right"></span></a></li>
                                 <li><a href="index.php?action=gestionsetat">Gestions des Etats<span class="pull-right"></span></a></li>
                             </ul>
-
                             <?php
-
                             if (isset($_GET['action']) == '' || $_GET['action'] == 'editerticket') {
                                 include('vueAddTicket.php');
                             } elseif ($_GET['action'] == 'gestionsetat' || $_GET['action'] == 'editetat') {
                                 include('vueAddEtat.php');
                             }
-                            // echo $_GET['action'];
                             ?>
                         </div>
                     </div>
@@ -61,7 +58,7 @@
                 <!-- END NAV TICKET -->
                 <!-- BEGIN TICKET -->
 
-                <div class="col-md-7">
+                    <div class="col-md-7">
                     <div class="grid support-content">
                         <div class="grid-body">
                             <h2>Tickets</h2>
@@ -79,15 +76,16 @@
             </div>
         </section>
     </div>
+    
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.bundle.min.js"></script>
+    
     <footer id="piedBlog">
         <center>
             Système ticketing POO par idris BOUZIDI
         </center>
-
     </footer>
+    
 </body>
-
 </html>
