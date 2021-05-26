@@ -15,10 +15,12 @@ class Billet extends Modele
 	public function getBillet($idBillet){
 		$sql = 'SELECT t.TIC_ID AS id, t.TIC_DATE AS date_ticket, t.TIC_TITRE AS titre, t.TIC_AUTEUR as auteur, t.TIC_CONTENU AS contenu, t.TIC_ETAT AS etat, e.nom_etat FROM t_ticket t INNER JOIN etats e ON e.id = t.TIC_ETAT WHERE TIC_ID = ?';
 		$billet = $this->executerRequete($sql, array($idBillet));
-		if ($billet->rowCount() == 1)
+		if ($billet->rowCount() == 1){
+
 			return $billet->fetch();  // Accès à la première ligne de résultat
-		else
-			throw new Exception("Aucun billet ne correspond à l'identifiant '$idBillet'");
+		}else{
+			throw new Exception("Aucun ticket ne correspond à l'identifiant '$idBillet'");
+		}
 	}
 
 	// Permet d'ajouter un nouveau ticket

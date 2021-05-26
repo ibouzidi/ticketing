@@ -18,9 +18,7 @@ class ControleurAccueil {
     if(isset($etat)){
       $billets = $this->billet->getTicketParEtat($etat);
     }else{
-
-
-    $billets = $this->billet->getBillets();
+      $billets = $this->billet->getBillets();
     }
     $etats = $this->etat->getEtats();
 

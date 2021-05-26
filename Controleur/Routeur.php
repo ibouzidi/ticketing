@@ -31,12 +31,15 @@ class Routeur
                         throw new Exception("Identifiant de billet non valide");
                 }
                 // action ajouter un ticket
-                else if ($_GET['action'] == 'ajouterTicket') { 
-                    $titre = $this->getParametre($_POST, 'titre');
-                    $auteur = $this->getParametre($_POST, 'auteur');
-                    $description = $this->getParametre($_POST, 'description');
-                    $etat = $this->getParametre($_POST, 'etat');
-                    $this->ctrlBillet->ajoutTicket($titre, $auteur, $description, $etat);
+                else if ($_GET['action'] == 'ajouterTicket' || $_GET['action'] == 'formAjoutTicket') { 
+                    if(isset($_POST['submit'])){
+                        $titre = $this->getParametre($_POST, 'titre');
+                        $auteur = $this->getParametre($_POST, 'auteur');
+                        $description = $this->getParametre($_POST, 'description');
+                        $etat = $this->getParametre($_POST, 'etat');
+                        $this->ctrlBillet->ajoutTicket($titre, $auteur, $description, $etat);
+                        }
+                    $this->ctrlBillet->formajoutticket();
                 }
                 // édition du ticket
                 else if($_GET['action'] == 'editerTicket'){

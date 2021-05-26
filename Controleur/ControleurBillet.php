@@ -31,9 +31,16 @@ class ControleurBillet
         $vue->generer(array('billet' => $billet, 'etats' => $etats, 'commentaires' => $commentaires, 'nbComms' => $nbComms));
     }
 
+    // vue form ajout ticket
+    public function formAjoutTicket(){
+        $etats = $this->etat->getEtats();
+        $vue = new Vue("FormAddticket");
+        $vue->generer(array('etats' => $etats));
+    }
     // Sauvegarde du ticket
     public function ajoutTicket($titre, $auteur, $description, $etat){
         if (!empty($_POST['titre']) && !empty($_POST['auteur']) && !empty($_POST['description'])) {
+            
                 $this->billet->ajoutTicket($titre, $auteur, $description, $etat);
                 header('Location: .');
         }else {

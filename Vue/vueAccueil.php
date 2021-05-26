@@ -12,29 +12,22 @@
                 <li class="closeticket"><span><?= $nbticketsFermer['nbticketferme']?></span> Fermé</li>
             </ul>
         </div>
+
         <div class="form-group col-md-7">
             <div class="checkbox">
                 <form class="form-inline" action="index.php" method="GET">
                     <legend class="fieldset-label">Trier par</legend>
                     <?php foreach ($etats as $etat) : ?>
 
-                    <input class="form-check-input" type="radio" name="etat" value="<?= $etat['nom_etat']?>" id="">
+                    <input class="form-check-input" type="radio" name="etat" value="<?= $etat['nom_etat']?>" id="" checked>
                     <label class="form-check-label" for="" class="side-label"><?= $etat['nom_etat'] ?></label>
                     <?php endforeach; ?>
                     <button type="submit" class="btn btn-info btn-filtre mx-2">Envoyer</button>
                 </form>
             </div>
         </div>
-    </div>
-    <a data-backdrop="static" class="addbutton" href="" data-toggle="modal" data-target="#modalAddTicket">Ajouter un
-        ticket<i class="fa fa-plus"></i></a>
-    <!-- modal -->
-    <div class="modal fade" id="modalAddTicket" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
-        aria-hidden="true">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <?php include('formAddticket.php');?>
-            </div>
+       
+        <a  class="addbutton" href="index.php?action=ajouterTicket">Ajouter un ticket<i class="fa fa-plus"></i></a>
         </div>
     </div>
 </div>
