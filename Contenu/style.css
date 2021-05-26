@@ -257,3 +257,34 @@ input[type="checkbox"] {
 .commentaire .nbcom {
 	color: #2B343D;
 }
+
+.boxstat {
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	grid-gap: 10px 2em;
+}
+
+.boxstat :first-child {
+	align-self: center;
+}
+
+
+.boxstat p {
+	padding-left: 1rem;
+	display: inline;
+	font-size: 1rem;
+	padding: 0.5rem;
+	color: white;
+}
+
+.boxstat .openticket {
+	background-color: #208837;
+}
+
+.boxstat .closeticket {
+	background-color: #FF2A2A;
+}
+
+.boxstat .tottickets {
+	background-color: #2B343D;
+}

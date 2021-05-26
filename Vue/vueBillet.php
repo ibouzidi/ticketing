@@ -1,3 +1,4 @@
+<!-- détails du billet en question -->
 <div class="container">
     <div class="contenu">
         <?php $titre = "Ticket - " . $billet['titre']; ?>
@@ -9,24 +10,25 @@
         <hr>
     </div>
 
-
+    <!-- section commentaire ajout suppression et nombre de commnaitre -->
     <div class="commentaire">
-    <h4 class="nbcom">
+        <h4 class="nbcom">
         <i class="fa fa-comments"></i><?= $nbComms['nbComm'] ?>
-    </h4>
-    <h4>Commentaires du ticket :</h4>
-    <?php foreach ($commentaires as $commentaire) : ?>
-    <p><?= $commentaire['auteur'] ?> dit le
-        <time><?= strftime("%a %d %b %Y %H:%M:%S", strtotime($commentaire['date'])); ?>
-    </p>
-    <a onclick="return confirm('&Ecirc;tes-vous sûr de vouloir supprimer ce commantaire ?')"
-        href="index.php?action=suppcomm&id=<?=$commentaire['id']?>" class="btn btn-danger btn-sm pull-right"><i
-            class="fa fa-trash fa-lg"></i></a>
-    <p><?= $commentaire['contenu'] ?></p>
+        </h4>
+        <h4>Commentaires du ticket :</h4>
+        <?php foreach ($commentaires as $commentaire) : ?>
 
-    <hr>
+            <p><?= $commentaire['auteur'] ?> dit le
+                <time><?= strftime("%a %d %b %Y %H:%M:%S", strtotime($commentaire['date'])); ?>
+            </p>
+            <a onclick="return confirm('&Ecirc;tes-vous sûr de vouloir supprimer ce commantaire ?')"
+                href="index.php?action=suppcomm&id=<?=$commentaire['id']?>" class="btn btn-danger btn-sm pull-right"><i
+                class="fa fa-trash fa-lg"></i></a>
+            <p><?= $commentaire['contenu'] ?></p>    
+            <hr>
 
-    <?php endforeach; ?> 
+        <?php endforeach; ?> 
+     <!-- répondre à un commentaire -->       
     <h5 id="titreReponses">Répondre à <?= $billet['auteur'] ?></h5>
     <form method="post" action="index.php?action=ajouterCommentaire">
         <div class="form-group">

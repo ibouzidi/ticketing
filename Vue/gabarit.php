@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-    <title></title>
+    <title><?= $titre ?></title>
     <meta content="Système de ticketing projet numéro 2 pour l'examin" name="descriptison">
     <meta content="Systeme ticketing étudiants lycée Simone Weil Saint-Priest-en-Jarez application projet" name="keywords">
 
