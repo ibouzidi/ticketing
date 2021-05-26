@@ -44,7 +44,8 @@ class Etat extends Modele
 
     // permet de récupérer un ticket en fonction de l'état
     public function getEtatSpp($idEtat)
-    {
+    {   
+     
         $sql = "SELECT e.id, e.nom_etat, t.TIC_ID,t.TIC_TITRE FROM etats e
         JOIN t_ticket t ON e.id = t.TIC_ETAT
         WHERE id = $idEtat
@@ -52,6 +53,15 @@ class Etat extends Modele
         $etat = $this->executerRequete($sql);
         return $etat;
     }
+
+    
+	public function suppTicketJoin($idEtat)
+	{
+		$sql = "DELETE FROM t_ticket WHERE TIC_ETAT = $idEtat";
+        $etat = $this->executerRequete($sql, array($idEtat));
+        return $etat;
+	}
+
 
 
 }

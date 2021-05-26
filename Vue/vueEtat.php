@@ -1,5 +1,6 @@
 <?php $titre = 'Gestionnaire des tickets'; ?>
 
+<a class="addbutton" href="" data-toggle="modal" data-target="#modalAddEtat">Ajouter un état<i class="fa fa-plus"></i></a>
 <div class="container">
     <div class="row">
         <div class="col-md-12">
@@ -35,3 +36,11 @@
 
     </div>
 </div>
+
+<div class="modal fade" id="modalAddEtat" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <?php include('formAddEtat.php');?>
+                </div>
+            </div>
+        </div>

@@ -19,6 +19,7 @@
     <!-- Template Main CSS File -->
     <link href="Contenu/normalize.css" rel="stylesheet">
     <link href="Contenu/style.css" rel="stylesheet">
+    
 
 </head>
 
@@ -44,14 +45,8 @@
                             <ul>
                                 <li class="active"><a href="index.php">Liste des tickets<span class="pull-right"></span></a></li>
                                 <li><a href="index.php?action=gestionsetat">Gestions des Etats<span class="pull-right"></span></a></li>
+                                
                             </ul>
-                            <?php
-                            if (isset($_GET['action']) == '' || $_GET['action'] == 'editerticket') {
-                                include('vueAddTicket.php');
-                            } elseif ($_GET['action'] == 'gestionsetat' || $_GET['action'] == 'editetat') {
-                                include('vueAddEtat.php');
-                            }
-                            ?>
                         </div>
                     </div>
                 </div>
@@ -76,7 +71,7 @@
             </div>
         </section>
     </div>
-    
+    <script src="Contenu/main.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.bundle.min.js"></script>

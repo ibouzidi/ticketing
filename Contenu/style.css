@@ -220,3 +220,22 @@ a {
 .listeticket {
 	width: 100%;
 }
+
+.addbutton i{
+	font-size: 1.3rem;
+	color: #00CC00;
+
+}
+.addbutton {
+	font-size: 1.3rem;
+	margin-left: 1rem;
+}
+
+input[type="checkbox"] {
+    vertical-align: middle;
+}
+
+.span12.pagination-centered {
+    margin: 25px auto;
+    width: 100px;
+}

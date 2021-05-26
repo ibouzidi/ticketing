@@ -63,4 +63,10 @@ class ControleurEtat
 
         }
     }
+        // suppression de tous les tickets
+        public function suppTicketJoin($idEtat){
+            $this->etat->suppTicketJoin($idEtat);
+            header('Location: .');
+        }
+
 }

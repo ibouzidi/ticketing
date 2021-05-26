@@ -31,16 +31,37 @@ class Routeur
                         throw new Exception("Identifiant de billet non valide");
                 }
                 // action ajouter un ticket
-                else if ($_GET['action'] == 'ajoutTicket') { 
+                else if ($_GET['action'] == 'ajouterTicket') { 
                     $titre = $this->getParametre($_POST, 'titre');
-                    $demande = $this->getParametre($_POST, 'demande');
-                    $this->ctrlBillet->ajouterTicket($titre, $demande);
+                    $auteur = $this->getParametre($_POST, 'auteur');
+                    $description = $this->getParametre($_POST, 'description');
+                    $etat = $this->getParametre($_POST, 'etat');
+                    $this->ctrlBillet->ajoutTicket($titre, $auteur, $description, $etat);
+                }
+                // édition du ticket
+                else if($_GET['action'] == 'editerTicket'){
+                    $idBillet = intval($this->getParametre($_GET, 'id'));
+                    $this->ctrlBillet->editTicket($idBillet);
+                }
+                // action du MAJ du ticket
+                  else if($_GET['action'] == 'majTicket'){
+                    $idBillet = intval($this->getParametre($_POST, 'id'));
+                    $titre = $this->getParametre($_POST, 'titre');
+                    $auteur = $this->getParametre($_POST, 'auteur');
+                    $etat = $this->getParametre($_POST, 'etats');
+                    $description = $this->getParametre($_POST, 'description');
+                    $this->ctrlBillet->majTicket($idBillet, $titre, $auteur, $description, $etat);
                 }
                 // action supp un ticket
                 else if ($_GET['action'] == 'supprimer') { 
                     $idBillet = intval($this->getParametre($_GET, 'id'));
                     $this->ctrlBillet->supprimerTicket($idBillet);
                 } 
+                // action supp TOUS les tickets
+                else if ($_GET['action'] == 'supprimerTicketJoin') {
+                    $idEtat = intval($this->getParametre($_GET, 'id'));
+                    $this->ctrlEtat->suppTicketJoin($idEtat);
+                }
                 // page liste des états
                 else if ($_GET['action'] == 'gestionsetat') { 
                     $this->ctrlEtat->etat();
