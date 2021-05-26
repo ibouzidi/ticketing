@@ -221,25 +221,27 @@ a {
 	width: 100%;
 }
 
-.addbutton i{
+.addbutton i {
 	font-size: 1.3rem;
 	color: #00CC00;
 
 }
+
 .addbutton {
 	font-size: 1.3rem;
 	margin-left: 1rem;
 }
 
 input[type="checkbox"] {
-    vertical-align: middle;
+	vertical-align: middle;
 }
 
 .span12.pagination-centered {
-    margin: 25px auto;
-    width: 100px;
+	margin: 25px auto;
+	width: 100px;
 }
-.buttonBack .returnBack{
+
+.buttonBack .returnBack {
 	margin-left: 1.5rem;
 }
 
@@ -258,24 +260,18 @@ input[type="checkbox"] {
 	color: #2B343D;
 }
 
-.boxstat {
-	display: grid;
-	grid-template-columns: 1fr 1fr;
-	grid-gap: 10px 2em;
+.boxstat .nbticket {
+	margin: 0;
 }
 
-.boxstat :first-child {
-	align-self: center;
-}
-
-
-.boxstat p {
+.boxstat li {
 	padding-left: 1rem;
-	display: inline;
 	font-size: 1rem;
+	display: inline-block;
 	padding: 0.5rem;
 	color: white;
 }
+
 
 .boxstat .openticket {
 	background-color: #208837;
@@ -287,4 +283,10 @@ input[type="checkbox"] {
 
 .boxstat .tottickets {
 	background-color: #2B343D;
+}
+
+input[type="checkbox"]+.side-label::before,
+input[type="checkbox"]+.side-label::after {
+	border-radius: 50%;
+	margin-left: 0.2rem;
 }

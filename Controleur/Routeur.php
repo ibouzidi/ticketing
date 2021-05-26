@@ -100,7 +100,12 @@ class Routeur
                 } else
                     throw new Exception("Action non valide");
             } else {  // aucune action définie : affichage de l'accueil
-                $this->ctrlAccueil->accueil();
+                try{
+                    $etat = $this->getParametre($_GET, 'etat');
+                }catch (Exception $e) {
+                    $etat = null;
+                }
+                $this->ctrlAccueil->accueil($etat);
             }
         } catch (Exception $e) {
             $this->erreur($e->getMessage());

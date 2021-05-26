@@ -83,5 +83,16 @@ class Billet extends Modele
 		}
 	}
 
+	public function getTicketParEtat($etat){
+		$sql = "SELECT t.TIC_ID AS id_billet, t.TIC_DATE, t.TIC_TITRE, t.TIC_AUTEUR as auteur, t.TIC_CONTENU, t.TIC_ETAT, e.id, e.nom_etat FROM
+        t_ticket t INNER JOIN etats e ON e.id = t.TIC_ETAT WHERE e.nom_etat = ? ";
+        $rqetat = $this->executerRequete($sql, array($etat));
+        if ($rqetat->rowCount() > 0) {
+            return $rqetat->fetchAll();
+        }else{
+            throw new Exception('Aucun ticket ne correspond à l\'etat : ['.$etat. ']');
+        }
+	}
+
 
 }

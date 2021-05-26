@@ -11,8 +11,9 @@ class Vue {
 
     public function generer($donnees) {
         $contenu = $this->genererFichier($this->fichier, $donnees);
+        $contenu2 = $this->genererFichier($this->fichier, $donnees);
         $vue = $this->genererFichier('Vue/gabarit.php',
-                array('titre' => $this->titre, 'contenu' => $contenu));
+                array('titre' => $this->titre, 'contenu' => $contenu, 'contenu2' => $contenu2));
         echo $vue;
     }
 

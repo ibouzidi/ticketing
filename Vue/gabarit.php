@@ -37,7 +37,7 @@
         <section class="content">
             <div class="row">
                 <!-- BEGIN NAV TICKET -->
-                <div class="col-md-5">
+                <div class="col-md-3">
                     <div class="grid support">
                         <div class="grid-body">
                             <h2>Gestions</h2>
@@ -53,7 +53,7 @@
                 <!-- END NAV TICKET -->
                 <!-- BEGIN TICKET -->
 
-                    <div class="col-md-7">
+                    <div class="col-md-9">
                     <div class="grid support-content">
                         <div class="grid-body">
                             <h2>Tickets</h2>
@@ -68,6 +68,7 @@
                     </div>
                 </div>
                 <!-- END TICKET -->
+          
             </div>
         </section>
     </div>

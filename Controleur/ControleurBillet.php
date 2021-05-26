@@ -8,11 +8,13 @@ class ControleurBillet
 {
 
     private $billet;
+    private $etat;
     private $commentaire;
 
     public function __construct()
     {
         $this->billet = new Billet();
+        $this->etat = new Etat();
         $this->commentaire = new Commentaire();
     }
 
