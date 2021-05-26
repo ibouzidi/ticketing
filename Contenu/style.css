@@ -239,3 +239,6 @@ input[type="checkbox"] {
     margin: 25px auto;
     width: 100px;
 }
+.buttonBack .returnBack{
+	margin-left: 1.5rem;
+}

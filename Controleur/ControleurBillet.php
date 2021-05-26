@@ -25,7 +25,7 @@ class ControleurBillet
 
     // Sauvegarde du ticket
     public function ajoutTicket($titre, $auteur, $description, $etat){
-        if (!empty($_POST['titre']) && !empty($_POST['description'])) {
+        if (!empty($_POST['titre']) && !empty($_POST['auteur']) && !empty($_POST['description'])) {
                 $this->billet->ajoutTicket($titre, $auteur, $description, $etat);
                 header('Location: .');
         }else {
@@ -35,18 +35,20 @@ class ControleurBillet
     
     // edition d'un ticket(vue)
     public function editTicket($idBillet){
-
         $billet = $this->billet->getBillet($idBillet);
         $etats = $this->billet->Etats($billet['nom_etat']);
         $vue = new Vue("formEditTicket");
         $vue->generer(array('billet' => $billet, 'etats' => $etats));
-
     }
 
     // MAJ d'un ticket
     public function majTicket($idBillet, $titre, $auteur, $description, $etat){
-        $this->billet->majTicket($idBillet, $titre, $auteur, $description, $etat);
-        header("location: index.php");
+        if(!empty($_POST['titre']) && !empty($_POST['auteur']) && !empty($_POST['description'])){
+            $this->billet->majTicket($idBillet, $titre, $auteur, $description, $etat);
+            header("location: index.php");
+        }else {
+            throw new Exception("Les champs ne peuvent pas être vide");
+        }
     }
     // suppression d'un ticket
     public function supprimerTicket($idBillet)

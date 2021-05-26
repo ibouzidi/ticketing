@@ -26,10 +26,18 @@ class ControleurEtat
     
     // Sauvegarde l'etat
     public function ajouterEtat($nom)
-    {
-        $this->etat->ajouterEtat($nom);
-        header('Location: index.php?action=gestionsetat');
-        die();
+    {   
+        try{
+            if(!empty($_POST['nom'])){
+                $this->etat->ajouterEtat($nom);
+                header('Location: index.php?action=gestionsetat');
+    
+            }else{
+                throw new Exception("Le champs nom ne peut pas être vide");
+            }
+        }catch (Exception $e) { //si erreur alors
+            throw new Exception("L'état [". $nom ."] existe déjà dans la base de donnée");
+        }
     }
     
     // formulaire édition d'un état

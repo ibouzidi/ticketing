@@ -61,7 +61,4 @@ class Etat extends Modele
         $etat = $this->executerRequete($sql, array($idEtat));
         return $etat;
 	}
-
-
-
 }
