@@ -62,6 +62,18 @@ class Routeur
                     $idEtat = intval($this->getParametre($_GET, 'id'));
                     $this->ctrlEtat->suppTicketJoin($idEtat);
                 }
+                // action ajout commentaire
+                else if($_GET['action'] == 'ajouterCommentaire'){
+                    $auteur = $this->getParametre($_POST, 'auteur');
+                    $contenu = $this->getParametre($_POST, 'contenu');
+                    $idBillet = $this->getParametre($_POST, 'id');
+                    $this->ctrlBillet->ajoutComm($auteur, $contenu, $idBillet);
+                }
+                // action supprimer un commentaire
+                else if ($_GET['action'] == 'suppcomm') {
+                    $idcom = intval($this->getParametre($_GET, 'id'));
+                    $this->ctrlBillet->supprimerComm($idcom);
+                }
                 // page liste des états
                 else if ($_GET['action'] == 'gestionsetat') { 
                     $this->ctrlEtat->etat();

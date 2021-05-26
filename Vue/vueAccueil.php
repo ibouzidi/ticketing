@@ -46,7 +46,6 @@
                     <?php }?>
                     <p class="info">Ouvert par <strong><?= $billet['auteur']?></strong>
                         <time><?= utf8_encode(strftime('%a %d %b %Y %H:%M:%S', strtotime($billet['TIC_DATE'])))?></time>
-                        <!-- <i class="fa fa-comments"></i><a href="#">2 commentaires</a> -->
                     </p>
                     <a onclick="return confirm('&Ecirc;tes-vous sûr de vouloir supprimer ce ticket ?')"
                     href="index.php?action=supprimer&id=<?=$billet['id_billet']?>"

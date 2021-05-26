@@ -242,3 +242,18 @@ input[type="checkbox"] {
 .buttonBack .returnBack{
 	margin-left: 1.5rem;
 }
+
+.commentaire {
+	padding-left: 50px;
+	padding: 20px;
+	width: 100%;
+	background-color: #e2e3e5;
+}
+
+.commentaire .fa-comments {
+	padding-right: 1rem;
+}
+
+.commentaire .nbcom {
+	color: #2B343D;
+}

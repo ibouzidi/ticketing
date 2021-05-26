@@ -52,4 +52,6 @@ class Billet extends Modele
 		$modifier = $this->executerRequete($sql, array($titre, $auteur, $description, $etat));
 		return $modifier;
 	}
+
+
 }
