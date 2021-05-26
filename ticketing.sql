@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1
--- Généré le : mer. 26 mai 2021 à 13:05
+-- Généré le : mer. 26 mai 2021 à 20:32
 -- Version du serveur :  10.4.11-MariaDB
 -- Version de PHP : 7.3.14
 
@@ -40,7 +40,8 @@ CREATE TABLE `etats` (
 INSERT INTO `etats` (`id`, `nom_etat`) VALUES
 (3, 'En attente'),
 (2, 'Fermer'),
-(1, 'Ouvert');
+(1, 'Ouvert'),
+(48, 'SEASON PASS');
 
 -- --------------------------------------------------------
 
@@ -61,14 +62,8 @@ CREATE TABLE `t_commentaire` (
 --
 
 INSERT INTO `t_commentaire` (`COM_ID`, `COM_DATE`, `COM_AUTEUR`, `COM_CONTENU`, `tic_ID`) VALUES
-(56, '2021-05-24 15:52:58', 'ergerg', 'ergergerger', 78),
-(57, '2021-05-24 15:53:01', 'erger', 'gergergergerg', 78),
-(58, '2021-05-24 15:53:03', 'ergergerg', 'erg', 78),
-(59, '2021-05-24 15:59:43', 'ezfezfefefefef', 'zefzefzefzefzefzefzeffezzefzefzefezfezfezfezfezfefzzefzefzefzefzefzeffzezfzefzefzefefz', 83),
-(60, '2021-05-24 15:59:46', 'zefzef', 'zefzef', 83),
-(61, '2021-05-24 15:59:49', 'zefzefz', 'efzefz', 83),
-(62, '2021-05-24 15:59:51', 'zfzef', 'zefzef', 83),
-(63, '2021-05-24 15:59:54', 'zefze', 'fzefzef', 83);
+(79, '2021-05-26 17:36:36', 'azfdaz', 'fzafazf', 195),
+(80, '2021-05-26 17:45:37', 'gre', 'ge', 196);
 
 -- --------------------------------------------------------
 
@@ -92,7 +87,9 @@ CREATE TABLE `t_ticket` (
 INSERT INTO `t_ticket` (`TIC_ID`, `TIC_DATE`, `TIC_TITRE`, `TIC_AUTEUR`, `TIC_CONTENU`, `TIC_ETAT`) VALUES
 (194, '2021-05-26 13:04:13', 'Sed omnis officia ev', 'idris', 'Tempore qui et esse', 3),
 (195, '2021-05-26 13:04:06', 'A ea in vel eu corpo', 'Lellouche', 'Corporis pariatur S', 1),
-(196, '2021-05-26 13:03:30', 'Laboris sit porro a', 'Lucas', 'Dignissimos cupidita', 2);
+(196, '2021-05-26 13:03:30', 'Laboris sit porro a', 'Lucas', 'Dignissimos cupidita', 2),
+(199, '2021-05-26 17:56:10', 'Nesciunt optio ame', 'Aut blanditiis liber', 'Fuga Illo sunt mini', 3),
+(200, '2021-05-26 17:56:14', 'Dolorem et enim mini', 'Deserunt adipisicing', 'Harum maxime cillum ', 3);
 
 --
 -- Index pour les tables déchargées
@@ -109,7 +106,8 @@ ALTER TABLE `etats`
 -- Index pour la table `t_commentaire`
 --
 ALTER TABLE `t_commentaire`
-  ADD PRIMARY KEY (`COM_ID`);
+  ADD PRIMARY KEY (`COM_ID`),
+  ADD KEY `tic_ID` (`tic_ID`);
 
 --
 -- Index pour la table `t_ticket`
@@ -126,23 +124,29 @@ ALTER TABLE `t_ticket`
 -- AUTO_INCREMENT pour la table `etats`
 --
 ALTER TABLE `etats`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=48;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=49;
 
 --
 -- AUTO_INCREMENT pour la table `t_commentaire`
 --
 ALTER TABLE `t_commentaire`
-  MODIFY `COM_ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=64;
+  MODIFY `COM_ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=81;
 
 --
 -- AUTO_INCREMENT pour la table `t_ticket`
 --
 ALTER TABLE `t_ticket`
-  MODIFY `TIC_ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=199;
+  MODIFY `TIC_ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=201;
 
 --
 -- Contraintes pour les tables déchargées
 --
+
+--
+-- Contraintes pour la table `t_commentaire`
+--
+ALTER TABLE `t_commentaire`
+  ADD CONSTRAINT `t_commentaire_ibfk_1` FOREIGN KEY (`tic_ID`) REFERENCES `t_ticket` (`TIC_ID`);
 
 --
 -- Contraintes pour la table `t_ticket`
